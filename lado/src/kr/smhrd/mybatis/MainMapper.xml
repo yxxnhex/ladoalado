@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.mybatis.MainMapper">
+	<select id="itemList" resultType="kr.smhrd.model.itemVO">
+		select * from items order by item_num
+	</select>
+	
+	<select id="itemContent_item" parameterType="int" resultType="kr.smhrd.model.itemVO" >
+		select * from items where item_num=#{item_num}
+	</select>
+	
+	<select id="itemContent_ingre" parameterType="int" resultType="kr.smhrd.model.ingredientVO" >
+		select * from ingredients where item_num=#{item_num}
+	</select>
+	
+	<insert id="userInsert" parameterType="kr.smhrd.model.UserVO">
+		insert into users(user_id,user_pwd,user_phone) 
+		values(#{user_id},#{user_pwd},#{user_phone})
+	</insert>
+	
+</mapper>
