@@ -6,6 +6,7 @@
 <%
     // Object Cating(객체형변환-제일중요)
     ArrayList<itemVO> list=(ArrayList<itemVO>)request.getAttribute("list");
+    ArrayList<itemVO> itemSearch_list=(ArrayList<itemVO>)request.getAttribute("itemSearch_list");
     String cpath=request.getContextPath(); // /m02    
 %>
 
@@ -158,7 +159,7 @@
                 </div>
             </div>
             <div class="row">
-            <% for(itemVO vo : list){ %>
+            <% for(itemVO vo : itemSearch_list){ %>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
