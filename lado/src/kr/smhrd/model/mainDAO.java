@@ -30,6 +30,14 @@ public class mainDAO {
 			return list;
 		}
 		
+		public  List<itemVO> itemSearch(String item_search){
+//			System.out.println("세션실행");
+			SqlSession session=sqlSessionFactory.openSession();
+			List<itemVO> itemSearch_list=session.selectList("itemSearch", item_search);
+			session.close();
+			return itemSearch_list;
+		}
+		
 		public itemVO itemContent_item(int item_num) {
 			SqlSession session=sqlSessionFactory.openSession();
 			itemVO vo= session.selectOne("itemContent_item", item_num);

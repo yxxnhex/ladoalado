@@ -17,5 +17,6 @@ public class UserVO {
 	private String user_phone;
 	private Date user_joindate;
 	private String user_id;
+
 	
 }

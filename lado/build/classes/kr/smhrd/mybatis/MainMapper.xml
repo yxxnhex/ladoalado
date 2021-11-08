@@ -20,4 +20,10 @@
 		values(#{user_id},#{user_pwd},#{user_phone})
 	</insert>
 	
+	<select id="itemSearch" parameterType="String" resultType="kr.smhrd.model.itemVO">
+		select * from items where item_name like CONCAT('%',#{item_name},'%') order by item_num
+
+
+	</select>
+	
 </mapper>
