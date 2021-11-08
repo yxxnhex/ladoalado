@@ -161,7 +161,8 @@
             <% for(itemVO vo : list){ %>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
+                        <div class="product__item__pic set-bg" >
+                            <img src=<%=vo.getItem_imgurl() %>>
                         </div>
                         <div class="product__item__text">
                             <h6><a href="<%=cpath%>/itemContent.do?item_num=<%=vo.getItem_num()%>"><%=vo.getItem_name()%></a></h6>
