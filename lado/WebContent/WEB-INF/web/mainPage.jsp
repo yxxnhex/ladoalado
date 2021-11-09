@@ -77,7 +77,9 @@
                                     <a href="" onclick="">My Page</a>
                                 </li>
                                 <li>
-                                    <a href="" onclick="">Cart</a>
+                                	<from action="<%=cpath%>/cartView.do" method="post">
+                                    <a href="/lado/cartView.do">Cart</a>
+                                    </from>
                                 </li>
                                 <li>
                                     <a href="/lado/signUp.do">회원가입</a>

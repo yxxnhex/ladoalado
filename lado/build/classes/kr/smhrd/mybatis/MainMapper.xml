@@ -22,8 +22,15 @@
 	
 	<select id="itemSearch" parameterType="String" resultType="kr.smhrd.model.itemVO">
 		select * from items where item_name like CONCAT('%',#{item_name},'%') order by item_num
-
-
+	</select>
+	
+	<insert id="cartInsert" parameterType="kr.smhrd.model.cartVO">
+		insert into carts(user_num,item_num,cart_cnt) 
+		values(#{user_num},#{item_num},#{cart_cnt})
+	</insert>
+	
+	<select id="cartView" parameterType="int" resultType="kr.smhrd.model.cartViewVO">
+		select i.item_num, i.item_name, i.item_company, i.item_price, i.item_imgurl, c.cart_cnt, c.user_num from carts c, items i where user_num=#{user_num} and c.item_num = i.item_num
 	</select>
 	
 </mapper>
