@@ -108,10 +108,10 @@
                 <nav class="header__menu mobile-menu">
                     <ul>
                         <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./about.html">About</a></li>
-                        <li><a href="#">Menu</a>
+                        <li><a href="#">About</a></li>
+                        <li><a href="/lado/itemList.do">Menu</a>
                             <ul class="dropdown">
-                                <li><a href="./shop-details.html">Details</a></li>
+                                <li><a href="./Lado/itemContent.do">Details</a></li>
                                 <li><a href="./shoping-cart.html">Cart</a></li>
                                 <li><a href="./wisslist.html">Wisslist</a></li>
                                 <li><a href="./blog-details.html">Blog Details</a></li>
@@ -127,7 +127,6 @@
 <!-- Header Section End -->
 
 
-    <!-- Breadcrumb End -->
 
     <!-- Shop Section Begin -->
     <section class="shop spad">
