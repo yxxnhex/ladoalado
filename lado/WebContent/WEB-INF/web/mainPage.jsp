@@ -1,3 +1,5 @@
+<%@page import="kr.smhrd.model.sellerVO"%>
+<%@page import="kr.smhrd.model.UserVO"%>
 <%@page import="kr.smhrd.model.itemVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,6 +7,8 @@
 
 <%
     String cpath=request.getContextPath(); // /m02
+    UserVO user=(UserVO)session.getAttribute("succ");
+    sellerVO seller=(sellerVO)session.getAttribute("succ2");
 %>
 <!DOCTYPE html>
 <html>
@@ -30,6 +34,11 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
+    <script type="text/javascript">
+  	function outFn(){
+  		location.href="<%=cpath%>/logout.do"
+  	}
+  </script>
 </head>
 <body>
 
@@ -227,7 +236,19 @@
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./shop.html">Login</a></li>                            
+                            <li>
+                            <% if(user==null&seller==null){ %>
+                            <a href="<%=cpath%>/loginPage.do" class="loginout">Login</a>                             
+                            <% } else{ %>
+                            <% if(user!=null){ %>
+                            <%= user.getUser_name() %>님 방문을 환영합니다.
+                            <a class="loginout" onclick="outFn()">Logout</a>
+                            <% }else if(seller!=null){ %>
+                            <%= seller.getSeller_id() %>님 방문을 환영합니다.
+                            <a class="loginout" onclick="outFn()">Logout</a>
+                            <% }
+                            }%>
+                            </li>                           
                         </ul>
                     </nav>
                 </div>

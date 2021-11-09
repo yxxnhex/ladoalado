@@ -22,8 +22,15 @@
 	
 	<select id="itemSearch" parameterType="String" resultType="kr.smhrd.model.itemVO">
 		select * from items where item_name like CONCAT('%',#{item_name},'%') order by item_num
-
-
 	</select>
+	
+	<select id="login_user" parameterType="kr.smhrd.model.UserVO" resultType="kr.smhrd.model.UserVO">
+		select * from users where user_id=#{user_id} and user_pwd=#{user_pwd}
+	</select>
+	
+	<select id="login_seller" parameterType="kr.smhrd.model.sellerVO" resultType="kr.smhrd.model.sellerVO">
+		select * from sellers where seller_id=#{seller_id} and seller_pwd=#{seller_pwd}
+	</select>
+	
 	
 </mapper>

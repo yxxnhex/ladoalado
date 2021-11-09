@@ -6,6 +6,9 @@ import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.itemContentController;
 import kr.smhrd.controller.itemListController;
 import kr.smhrd.controller.itemSearchController;
+import kr.smhrd.controller.loginController;
+import kr.smhrd.controller.loginPageController;
+import kr.smhrd.controller.logoutController;
 import kr.smhrd.controller.mainPageController;
 import kr.smhrd.controller.signUpController;
 import kr.smhrd.controller.userInsertController;
@@ -20,6 +23,9 @@ public class HandlerMapping {
 		mappings.put("/signUp.do", new signUpController());
 		mappings.put("/userInsert.do", new userInsertController());
 		mappings.put("/itemSearch.do", new itemSearchController());
+		mappings.put("/loginPage.do", new loginPageController());
+		mappings.put("/login.do", new loginController());
+		mappings.put("/logout.do", new logoutController());
 
 	}
 	public Controller getController(String key) {
