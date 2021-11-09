@@ -20,9 +20,7 @@ public class cartViewController implements Controller {
 			throws ServletException, IOException {
 
 		
-//		int user_num=Integer.parseInt(request.getParameter("user_num"));
-		
-		int user_num=2;
+	 	int user_num=Integer.parseInt(request.getParameter("user_num"));
 		
 		
 		

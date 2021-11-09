@@ -2,7 +2,9 @@ package kr.smhrd.model;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -73,4 +75,15 @@ public class mainDAO {
 			return vo2;
 		}
 		
+		public kcal_calVO kcal_cal_man(int user_age) {
+			SqlSession session = sqlSessionFactory.openSession();
+			kcal_calVO kcal_cal_vo= session.selectOne("kcal_cal_man", user_age);
+			return kcal_cal_vo;
+		}
+		
+		public kcal_calVO kcal_cal_woman(int user_age) {
+			SqlSession session = sqlSessionFactory.openSession();
+			kcal_calVO kcal_cal_vo= session.selectOne("kcal_cal_woman", user_age);
+			return kcal_cal_vo;
+		}
 }
