@@ -22,16 +22,20 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/flaticon.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/barfiller.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/magnific-popup.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/member1.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/flaticon.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/barfiller.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/magnific-popup.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/elegant-icons.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/nice-select.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/owl.carousel.min.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/slicknav.min.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style1.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style2.css" type="text/css">     
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 

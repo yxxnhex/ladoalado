@@ -16,6 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
+<!-- CSS Styles -->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/flaticon.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/barfiller.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/magnific-popup.css" type="text/css">
 
 	
 
