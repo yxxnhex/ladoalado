@@ -59,4 +59,18 @@ public class mainDAO {
 			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
 		}
 		
+		public UserVO login_user(UserVO vo) {
+			SqlSession session=sqlSessionFactory.openSession();
+			vo=session.selectOne("login_user",vo);
+			session.close();
+			return vo;
+		}
+		
+		public sellerVO login_seller(sellerVO vo2) {
+			SqlSession session = sqlSessionFactory.openSession();
+			vo2 = session.selectOne("login_seller", vo2);
+			session.close();
+			return vo2;
+		}
+		
 }

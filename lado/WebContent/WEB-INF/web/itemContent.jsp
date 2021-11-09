@@ -46,11 +46,27 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <!-- Page Preloder -->
     <div id="preloder" style="display: none;">
         <div class="loader" style="display: none;"></div>
     </div>
 
+<div>
+<form action="<%=cpath%>/cartInsert.do" method="post">
+		  <div>
+		  <li> <span class="arrow_carrot-down"></span>
+		  			<ul><input type="hidden" name="user_num" value="<%=vo.getItem_num()%>"></ul>
+		  			<ul><input type="hidden" name="item_num" value="<%=vo.getItem_num()%>"></ul>
+                    <ul><input type="text" name="cart_cnt"  placeholder="수량입력"></ul>
+                    <ul><%=vo.getItem_name() %></ul>
+                    <input type="submit" value="장바구니 담기" />
+           			<input type="reset" value="취소" />
+          </li>
+		     
+       
+       
+       
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
