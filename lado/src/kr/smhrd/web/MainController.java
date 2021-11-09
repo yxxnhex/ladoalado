@@ -2,6 +2,7 @@ package kr.smhrd.web;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +35,7 @@ public class MainController extends HttpServlet {
 		
 		
 		// 3. 분기작업은 한번에 하기.... if
-		if(view!=null) {
+		if(view!=null) 	{
 			if(view.indexOf("redirect:")!=-1) {
 			   //                    "/m02/boardList.do"	
 			   response.sendRedirect(cpath+view.split(":")[1]); // redirect:/boardList.do
