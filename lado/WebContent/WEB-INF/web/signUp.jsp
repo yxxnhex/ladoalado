@@ -27,50 +27,96 @@
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slicknav.min.css" type="text/css">
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
 
+
+<script>
+function chkForm2() {
+      console.log("test");
+      var id = document.querySelector('input[name="user_id"]');
+      var pw1 = document.querySelector('input[name="user_pwd"]');
+      var pw2 = document.querySelector('input[name="user_pwd_ck"]');
+      var name = document.querySelector('input[name="usre_name"]');
+      var gender = document.querySelectorAll('input[name="user_gender"]');
+      var age = document.querySelector('input[name="user_age"]');
+   
+      //성별검사
+      var genderVal = false;
+      for (var i = 0; i < gender.length; i++) {
+         //성별을 검사하면서 한개라도 체크가되어있다면
+         if (gender[i].checked) {
+            //true를 셋팅
+            genderVal = true;
+         }
+      }
+      // 전체 검사
+      // 아이디가 공백이거나 4글자 미만이면
+      if (id.value == '' || id.value.length < 6 ) {
+         alert('아이디를 6자이상 입력해주세요!');
+         //id포커스
+         id.focus();
+         return false;
+      // 비밀번호가 4자리 미만이거나 숫자가 아닐때
+      } else if (pw1.value.length < 6 || pw1.value=='') {
+         alert('비밀번호를 6자 이상 입력해주세요!');
+         //비밀번호 포커스
+         pw1.focus();
+         return false;
+      // 비밀번호가 처음입력한 값과 다를시
+      } else if (pw1.value != pw2.value) {
+         alert('패스워드가 일치하지 않습니다.');
+         pw2.focus();
+         return false;
+      // 성별이 체크가 안되었을시
+      } else if (genderVal == false) {
+         alert("성별을 입력하세요!");
+         gender[0].focus();
+         return false;
+         // 전부완료되면 메인 페이지 이동
+      } else {
+         
+         return true;
+         
+      }
+}
+</script>
 </head>
 <body>
  
 <div>
+<!-- 
   <h2>회원가입</h2>
   <div>
     <div>게시판 글쓰기</div>
     <div>
       <form action="<%=cpath%>/userInsert.do" method="post">
-		  <div>
-		    <label for="title">아이디:</label>
-		    <div>
-		      <input type="text" name="user_id"  placeholder="Enter id">
-		    </div>
-		  </div>
-		  <div>
-		    <label for="contents">비밀번호:</label>
-		    <div>
-		      <input type="password" name="user_pwd"  placeholder="Enter password">
-		    </div>
-		  </div>
-		  <div>
-		    <label for="writer">핸드폰번호:</label>
-		    <div>
-		      <input type="text" name="user_phone" placeholder="(-)없이 11자만 작성해주세요">
-		    </div>
-		  </div>
-		  <div>
-		    <div>
-		      <button type="submit" class="btn btn-primary btn-sm">회원가입</button>
-		      <button type="reset" class="btn btn-warning btn-sm">취소</button>
-		    </div>
-		  </div>
+        <div>
+          <label for="title">아이디:</label>
+          <div>
+            <input type="text" name="user_id"  placeholder="Enter id">
+          </div>
+        </div>
+        <div>
+          <label for="contents">비밀번호:</label>
+          <div>
+            <input type="password" name="user_pwd"  placeholder="Enter password">
+          </div>
+        </div>
+        <div>
+          <label for="writer">핸드폰번호:</label>
+          <div>
+            <input type="text" name="user_phone" placeholder="(-)없이 11자만 작성해주세요">
+          </div>
+        </div>
+        <div>
+          <div>
+            <button type="submit" class="btn btn-primary btn-sm">회원가입</button>
+            <button type="reset" class="btn btn-warning btn-sm">취소</button>
+          </div>
+        </div>
       </form>
     </div>
 </div>
-
-
-
-
-
-
-
-	<div id="wrap" class="">
+ -->
+   <div id="wrap" class="">
         <div id="pos_scroll"></div>
         <div id="container">
         <div id="header">
@@ -337,7 +383,8 @@
         
        
         <div class="type_form member_join ">
-        <form id="form" name="frmMember" method="post" action="/shop/member/indb.php" onsubmit="return chkForm2(this)" novalidate="">
+         
+        <form id="form" name="frmMember" method="post" action="<%=cpath%>/userInsert.do" onsubmit="return chkForm2();">
         <input type="hidden" name="mode" value="joinMember">
         <input type="hidden" name="check_mobile" value="">
         <input type="hidden" name="auth_finish_code" value="">
@@ -352,11 +399,12 @@
         <p class="page_sub"><span class="ico">*</span>필수입력사항</p>
         <table class="tbl_comm">
         <tbody><tr class="fst">
-        <th>아이디<span class="ico">*<span class="screen_out">필수항목</span></span></th>
+        <th>아이디<span class="username_input">*<span class="screen_out">필수항목</span></span></th>
         <td>
-        <input type="text" name="user_id" value="" maxlength="16" required="" fld_esssential="" option="regId" label="아이디" placeholder="아이디를 입력하세요">
+          <input type="text" name="user_id" value="" maxlength="16" required="" fld_esssential="" option="regId" label="아이디" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
         <input type="hidden" name="chk_id" required="" fld_esssential="" label="아이디중복체크" value="">
         <a class="btn default" href="javascript:chkId()">중복확인</a>
+        <img id="id_check_sucess" style="display: none;">
         <p class="txt_guide square">
         <span class="txt txt_case1">6자 이상의 영문 혹은 영문과 숫자를 조합</span>
         <span class="txt txt_case2">아이디 중복확인</span>
@@ -366,10 +414,10 @@
         <tr>
         <th>비밀번호<span class="ico">*<span class="screen_out">필수항목</span></span></th>
         <td>
-        <input type="password" name="password" required="" fld_esssential="" option="regPass" label="비밀번호" maxlength="16" class="reg_pw" placeholder="비밀번호를 입력해주세요">
+        <input type="password" name="user_pwd" required="" fld_esssential="" option="regPass" label="비밀번호" maxlength="16" class="reg_pw" placeholder="비밀번호를 입력해주세요">
         <p class="txt_guide square">
-        <span class="txt txt_case1">10자 이상 입력</span>
-        <span class="txt txt_case2">영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합</span>
+        <span class="id_input_re1">사용가능한 아이디 입니다</span>
+        <span class="id_input_re1">아이디가 이미 존재 합니다</span>
         <span class="txt txt_case3">동일한 숫자 3개 이상 연속 사용 불가</span>
         </p>
         </td>
@@ -377,7 +425,7 @@
         <tr class="member_pwd">
         <th>비밀번호확인<span class="ico">*<span class="screen_out">필수항목</span></span></th>
         <td>
-        <input type="password" name="password2" required="" fld_esssential="" option="regPass" label="비밀번호" maxlength="16" class="confirm_pw" placeholder="비밀번호를 한번 더 입력해주세요">
+        <input type="password" name="user_pwd_ck" required="" fld_esssential="" option="regPass" label="비밀번호" maxlength="16" class="confirm_pw" placeholder="비밀번호를 한번 더 입력해주세요">
         <p class="txt_guide square">
         <span class="txt txt_case1">동일한 비밀번호를 입력해주세요.</span>
         </p>
@@ -386,7 +434,7 @@
         <tr>
         <th>이름<span class="ico">*<span class="screen_out">필수항목</span></span></th>
         <td>
-        <input type="text" name="name" value="" required="" fld_esssential="" label="이름" placeholder="이름을 입력해주세요">
+        <input type="text" name="user_name" value="" required="" fld_esssential="" label="이름" placeholder="이름을 입력해주세요">
         </td>
         </tr>
         <tr>
@@ -409,21 +457,18 @@
         
         </td>
         </tr>
-        <tr class="select_sex">
+        <tr class="gneder">
             <th>성별</th>
             <td>
             <label class="">
-            <input type="radio" name="sex" value="m">
+            <input type="radio" name="user_gender" value="man">
             <span class="ico"></span>남자
             </label>
             <label class="">
-            <input type="radio" name="sex" value="w">
+            <input type="radio" name="user_gender" value="woman">
             <span class="ico"></span>여자
             </label>
-            <label class="checked">
-            <input type="radio" name="sex" value="n" checked="checked">
-            <span class="ico"></span>선택안함
-            </label>
+      
             </td>
             </tr>
     
@@ -433,7 +478,7 @@
         <tr class="age">
         <th>나이</th>
         <td>
-            <input type="text" name="name" value="" required="" fld_esssential="" label="나이" placeholder="나이를 입력해주세요">
+            <input type="text" name="user_age" value="" required="" fld_esssential="" label="나이" placeholder="나이를 입력해주세요">
         <div class="age">
         
         <span class="bar"></span>
@@ -452,7 +497,8 @@
         </tr>
         </tbody></table>
         <div id="formSubmit" class="form_footer">
-        <button type="button" class="btn active btn_join" onclick="formJoinSubmit()">가입하기</button>
+ 
+        <button type="submit" class="btn active btn_join">가입하기</button>
         </div>
         </form>
         </div>
@@ -489,194 +535,91 @@
         
 <!-- Code injected by live-server -->
 <script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
+   // <![CDATA[  <-- For SVG support
+   if ('WebSocket' in window) {
+      (function () {
+         function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+               var elem = sheets[i];
+               var parent = elem.parentElement || head;
+               parent.removeChild(elem);
+               var rel = elem.rel;
+               if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                  var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                  elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+               }
+               parent.appendChild(elem);
+            }
+         }
+         var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+         var address = protocol + window.location.host + window.location.pathname + '/ws';
+         var socket = new WebSocket(address);
+         socket.onmessage = function (msg) {
+            if (msg.data == 'reload') window.location.reload();
+            else if (msg.data == 'refreshcss') refreshCSS();
+         };
+         if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.');
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+         }
+      })();
+   }
+   else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+   }
 </script>
-<!-- Code injected by live-server -->
-<script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script><!-- Code injected by live-server -->
-<script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script><!-- Code injected by live-server -->
-<script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script><!-- Code injected by live-server -->
-<script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
+<script>
+
+   /*window.addEventListener('load', function() {
+      var signup = document.querySelector('#signup');
+      
+      //signup버튼을 클릭했을때
+      signup.addEventListener('click', function() {
+         var id = document.querySelector('.user_name');
+         var pw1 = document.querySelector('.user_pwd');
+         var pw2 = document.querySelector('#user_pwd2');
+         var gender = document.querySelectorAll(".gender");
+         var age = document.querySelector('.age');
+      
+         //성별검사
+         var genderVal = false;
+         for (var i = 0; i < gender.length; i++) {
+            //성별을 검사하면서 한개라도 체크가되어있다면
+            if (gender[i].checked) {
+               //true를 셋팅
+               genderVal = true;
+            }
+         }
+         // 전체 검사
+         // 아이디가 공백이거나 4글자 미만이면
+         if (id.value == '' || id.value.length < 4) {
+            alert('아이디를 4자이상!');
+            //id포커스
+            id.focus();
+         // 비밀번호가 4자리 미만이거나 숫자가 아닐때
+         } else if (pw1.value.length < 4 || isNaN(pw1.value)) {
+            alert('비번 숫자로 4자이상쓰셈');
+            //비밀번호 포커스
+            pw1.focus();
+         // 비밀번호가 처음입력한 값과 다를시
+         } else if (pw1.value != pw2.value) {
+            alert('패스워드가 일치하지 않습니다.');
+            pw2.focus();
+         // 성별이 체크가 안되었을시
+         } else if (genderVal == false) {
+            alert("성별을 입력하세요!");
+            gender[0].focus();
+            // 전부완료되면 메인 페이지 이동
+         } else {
+            location.href = "";
+         }
+
+      });
+   });*/
+   
 </script>
-
-
-
 
 
 
