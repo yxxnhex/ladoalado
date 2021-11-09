@@ -19,5 +19,6 @@ public class itemVO {
 	private int item_time;
 	private Date reg_date;
 	private int seller_num;
+	private String item_imgurl;
 	
 }
