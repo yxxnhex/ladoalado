@@ -16,8 +16,8 @@
 	</select>
 	
 	<insert id="userInsert" parameterType="kr.smhrd.model.UserVO">
-		insert into users(user_id,user_pwd,user_phone) 
-		values(#{user_id},#{user_pwd},#{user_phone})
+		insert into users(user_id,user_pwd,user_name,user_gender,user_age) 
+		values(#{user_id},#{user_pwd},#{user_name},#{user_gender},#{user_age})
 	</insert>
 	
 	<select id="itemSearch" parameterType="String" resultType="kr.smhrd.model.itemVO">

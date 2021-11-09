@@ -17,16 +17,17 @@ public class userInsertController implements Controller {
 		
 		String user_id=request.getParameter("user_id");
 		String user_pwd=request.getParameter("user_pwd");
-		String user_phone=request.getParameter("user_phone");
+		String user_name=request.getParameter("user_name");
+		String user_gender=request.getParameter("user_gender");
+		int user_age=Integer.parseInt(request.getParameter("user_age"));
 		
 		UserVO vo=new UserVO();
 		vo.setUser_id(user_id);
 		vo.setUser_pwd(user_pwd);
-		vo.setUser_phone(user_phone);
+		vo.setUser_name(user_name);
+		vo.setUser_gender(user_gender);
+		vo.setUser_age(user_age);
 		
-		System.out.println(user_id);
-		System.out.println(user_pwd);
-		System.out.println(user_phone);
 		
 		mainDAO dao=new mainDAO();
 		dao.userInsert(vo);
