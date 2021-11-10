@@ -139,14 +139,14 @@
                     				<div class="product__item__text">                    	                           
                             			<form method="post" action="<%=cpath%>/itemContent.do">
                             				<input type="hidden" name="item_num" value="<%=vo.getItem_num()%>">
-                         	                <input type="submit" value="<%=vo.getItem_num()%>" >
+                            				<input type="hidden" name="user_age" value="<%=user.getUser_age()%>">
+                            				<input type="hidden" name="user_gender" value="<%=user.getUser_gender()%>">
+                         	                <input type="submit" value="<%=vo.getItem_name()%>" >
                             			</form>
                                                         
-                            			<div class="product__item__price"><%=vo.getItem_name()%></div>
+                            			
                             			<div class="product__item__price"><%=vo.getItem_price()%>원</div>
-                            			<div class="cart_add">
-                                			<a href="<%=cpath%>/cartInsert.do">담기</a>
-           								</div>
+                            			
            							</div>
                 			</li>
                 		</ul>

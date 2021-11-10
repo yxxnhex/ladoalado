@@ -40,53 +40,10 @@
     <link rel="stylesheet" href="css/style1.css" type="text/css">
     <link rel="stylesheet" href="css/common.css" type="text/css">
     <link rel="stylesheet" href="css/member1.css" type="text/css">
-    <script type="text/javascript">
 
 </head>
 <body>
-	<!-- 
-	<div align="center">
-	<h3>[장바구니 보기]</h3>
-	<table border="1">
-		<tr>
-			<th>번호</th>
-			<th>밀키트명</th>
-			<th>단가</th>
-			<th>주문 수량</th>
-			<th>가격</th>
-		</tr>
-		<%
-		if(list.size() == 0) {
-			out.println("<tr align='center'>");
-				out.println("<td colspan= '5'>");
-					out.println("장바구니에 담긴 상품이 없습니다.");
-				out.println("</td>");
-			out.println("</tr>");
-		} else {
-			int totalSum = 0, total = 0;
-			for(int i = 0; i < list.size(); i++) {
-				cartViewVO vo = list.get(i);
-				out.println("<tr align= 'center'>");
-					out.println("<td>" + (i + 1) + "</td>");
-					out.println("<td>" + vo.getItem_num() + "</td>");
-					out.println("<td>" + vo.getCart_cnt() + "</td>");
-				out.println("</tr>");
-				totalSum += total;
-			}
-		out.println("<tr align = 'center'>");
-			out.println("<td colspan= '4'>");
-				out.println("<input type='button' value='결제하기' onclick='fnPay()' />");
-				out.println("<input type='button' value='장바구니 비우기' onclick='fnClear()' />");
-				out.println("<input type='button' value='쇼핑 계속하기' onclick='fnGo()' />");
-			out.println("</td>");
-			out.println("<td>");
-			out.println("</td>");
-		out.println("</tr>");
-		}//if else
-		%>
-	</table>
-</div>
-		 -->
+	
 
 
 <!-- Header Section Begin -->

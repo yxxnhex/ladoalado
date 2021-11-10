@@ -20,13 +20,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
-<!-- CSS Styles -->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/flaticon.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/barfiller.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/magnific-popup.css" type="text/css">
-
-	
 
         <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -51,112 +44,6 @@
 
 <body>
 
-<<<<<<< HEAD
-=======
-    <footer id="footer" class="">
-        <address class="content">
-            <h4>Lado a Lado</h4>
-            <p>
-                (주)라도어라도
-                <em>|</em>
-                <span>사업자번호 : 128-31-00321</span>
-                <em>|</em>
-                <span>대표 : 김라도</span>
-            </p>
-            <p>
-                <span>광주광역시 남구 송암로60, CGI센터 201호</span>
-            </p>
-    </footer>
-    
-<body>
-	<header id="header">
-        <div class="headbox">
-            <nav class=""> <!--현재 페이지나 다른 페이지로의 링크를 보여주는 구획-->
-                <div class="">
-                    <h1 class="site_logo">
-                        <a href="" class="">
-                            <img src="" alt="">
-                        </a>
-                    </h1>
-                    <div class="menu_list_wrap">
-                        <button class="menu_list">
-                            <span class="icon"></span>
-                        </button>
-                    </div>
-                    <div class="menu_list_ihnner">
-                        <div>
-                            <img class="" src="">
-                            <ul class="menu_list"></ul>
-                                <li>
-                                    <a href="/lado/itemList.do">Menu</a>
-                                </li>
-                                <li>
-                                    <a href="/lado/test.do">test</a>
-                                </li>
-                                <li>
-                                    <a href="/lado/input.do">input</a>
-                                </li>
-                                <li>
-                                    <a href="/lado/cartView.do">Cart</a>
-                                </li>
-                                <li>
-                                    <a href="/lado/signUp.do">구매자 회원가입</a>
-                                </li>
-                                <li>
-                                    <a href="/lado/SellersignUp.do">판매자 회원가입</a>
-                                </li>
-                            
-                        </div>
-                        <%if(user == null){ %>
-                        <a href="/lado/loginPage.do">회원가입</a>
-                        <%}else{ %>
-                        <form action="<%=cpath%>/cartView.do" method="post">
-                        <input type="hidden" name="user_num" value="<%=user.getUser_num()%>">
-                        <input type="submit" value="Cart" />
-           				</form>
-                        <%} %>
-                        
-                    </div>
-                </div>
-            </nav>
-            <div class="header-contents">
-                <h2>
-                    맛있는 밀키트
-                    <br>
-                    영양성분은 어떨까요?
-                </h2>
-                <p>
-                    나와 우리가족을 위한 맞춤 밀키트,
-                    <br>
-                    지금 찾아보기!
-                </p>
-            </div>
-            <main>
-                <section></section>
-            </main>
-        </div>
-    </header>
-    <footer id="footer" class="">
-        <address class="content">
-            <h4>Lado a Lado</h4>
-            <p>
-                (주)라도어라도
-                <em>|</em>
-                <span>사업자번호 : 128-31-00321</span>
-                <em>|</em>
-                <span>대표 : 김라도</span>
-            </p>
-            <p>
-                <span>광주광역시 남구 송암로60, CGI센터 201호</span>
-            </p>
-    </address></footer>
-    
-    
-        <!-- Page Preloder -->
-    <div id="preloder" style="display: none;">
-        <div class="loader" style="display: none;"></div>
-    </div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
 
 <!-- Header Section Begin -->
     <header class="header">
@@ -189,8 +76,16 @@
                             <li><a href="<%=cpath%>/mainPage.do">Home</a></li>
                             <li><a href="<%=cpath%>/">About Us</a></li>
                             <li><a href="<%=cpath%>/itemList.do">Menu</a></li>
-                            <li><a href="<%=cpath%>/cartView.do">Cart</a></li>
-                            <li><a href="<%=cpath%>/seller.html">Seller</a></li>
+                            <li><%if(user == null){ %>
+                        <a href="<%=cpath%>/signUp.do">회원가입</a>
+                        <%}else{ %>
+                        <form action="<%=cpath%>/cartView.do" method="post">
+                        <input type="hidden" name="user_num" value="<%=user.getUser_num()%>">
+                        <input type="submit" value="Cart" />
+                       </form>
+                        <%} %>
+                        </li>
+                            <li><a href="<%=cpath%>/input.do">판매상품등록</a></li>
 							<li>
                             <% if(user==null&seller==null){ %>
                             <a href="<%=cpath%>/loginPage.do" class="loginout">Login</a>                             
