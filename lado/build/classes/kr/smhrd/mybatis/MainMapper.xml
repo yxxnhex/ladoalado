@@ -49,4 +49,34 @@
 		select * from kcal_cal where gender='woman' and age=#{user_age}
 	</select>
 	
+	<insert id="testInsert" parameterType="kr.smhrd.model.boardVO">
+		insert into board(file_name,file_path,filename) 
+		values(#{file_name},#{file_path},#{filename})
+	</insert>
+	
+	<select id="testList" resultType="kr.smhrd.model.boardVO">
+		select * from board
+	</select>
+	<select id="id_check" parameterType="kr.smhrd.model.UserVO" resultType="kr.smhrd.model.UserVO">
+		select * from users where user_id=#{user_id}
+	</select>
+	
+	<insert id="sellerInsert" parameterType="kr.smhrd.model.sellerVO">
+		insert into sellers(seller_id,seller_pwd,seller_phone,seller_bnum) 
+		values(#{seller_id},#{seller_pwd},#{seller_phone},#{seller_bnum})
+	</insert>
+	
+	<select id="sellerid_check" parameterType="kr.smhrd.model.sellerVO" resultType="kr.smhrd.model.sellerVO">
+		select * from sellers where seller_id=#{seller_id}
+	</select>
+
+	<insert id="itemInsert" parameterType="kr.smhrd.model.itemVO">
+		insert into items(item_name, item_company, item_price, item_serve, item_time, item_gram, item_imgurl, seller_num) 
+		values(#{item_name}, #{item_company}, #{item_price}, #{item_serve}, #{item_time}, #{item_gram}, #{item_imgurl}, #{seller_num})
+	</insert>
+	
+	<insert id="ingredientInsert" parameterType="kr.smhrd.model.ingredientVO">
+		insert into ingredients(item_kcal, item_nate, item_carbo, item_sugar, item_fat, item_trans, item_sat, item_col, item_protein) 
+		values(#{item_kcal}, #{item_nate}, #{item_carbo}, #{item_sugar}, #{item_fat}, #{item_trans}, #{item_sat}, #{item_col}, #{item_protein})
+	</insert>
 </mapper>

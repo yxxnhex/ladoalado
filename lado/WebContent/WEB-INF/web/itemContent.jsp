@@ -186,6 +186,7 @@
                         </div>
                         <a href="#" class="primary-btn">Add to cart</a>
                         <a href="#" class="heart__btn"><span class="icon_heart_alt"></span></a>
+
                     </div>
                 </div>
             </div>

@@ -90,11 +90,13 @@ function chkForm2() {
       
    }
 }
+
 $('.username_input').change(function () {
      $('#id_check_sucess').hide();
      $('.id_overlap_button').show();
      $('.username_input').attr("check_result", "fail");
 })
+
       function id_overlap_check() {
 
            
@@ -127,7 +129,8 @@ $('.username_input').change(function () {
                     $('.username_input').attr("check_result", "success");
                     $('#id_check_sucess').show();
                     $('.id_overlap_button').hide();
-                 return;}
+                 return;
+                 }
                
              }
            });
@@ -457,6 +460,7 @@ $('.username_input').change(function () {
         <p class="page_sub"><span class="ico">*</span>필수입력사항</p>
         <table class="tbl_comm">
         <tbody><tr class="fst">
+        
         <th>아이디<span>*<span class="screen_out">필수항목</span></span></th>
         <td>
          <input type="text" class="username_input" name="user_id" check_result="fail" value=""  maxlength="16" required="" fld_esssential="" option="regId" label="아이디" placeholder="6자 이상의 문자를 입력하세요]"/>
@@ -474,9 +478,9 @@ $('.username_input').change(function () {
         <td>
         <input type="password" name="user_pwd" required="" fld_esssential="" option="regPass" label="비밀번호" maxlength="16" class="reg_pw" placeholder="비밀번호를 입력해주세요">
         <p class="txt_guide square">
-        <span class="id_input_re1">사용가능한 아이디 입니다</span>
-        <span class="id_input_re1">아이디가 이미 존재 합니다</span>
-        <span class="txt txt_case3">동일한 숫자 3개 이상 연속 사용 불가</span>
+        <span class="id_input_re1"></span>
+        <span class="id_input_re1"></span>
+        <span class="txt txt_case3"></span>
         </p>
         </td>
         </tr>

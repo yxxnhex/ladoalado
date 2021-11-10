@@ -33,7 +33,7 @@ public class mainDAO {
 		}
 		
 		public  List<itemVO> itemSearch(String item_search){
-//			System.out.println("세션실행");
+			System.out.println("세션실행");
 			SqlSession session=sqlSessionFactory.openSession();
 			List<itemVO> itemSearch_list=session.selectList("itemSearch", item_search);
 			session.close();
@@ -54,12 +54,7 @@ public class mainDAO {
 			return vo1;
 		}
 		
-		public void userInsert(UserVO vo) {
-			SqlSession session=sqlSessionFactory.openSession();
-			session.insert("userInsert", vo);
-			session.commit(); //완료(저장)
-			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
-		}
+		
 		
 		public UserVO login_user(UserVO vo) {
 			SqlSession session=sqlSessionFactory.openSession();
@@ -68,12 +63,46 @@ public class mainDAO {
 			return vo;
 		}
 		
+		
 		public sellerVO login_seller(sellerVO vo2) {
 			SqlSession session = sqlSessionFactory.openSession();
 			vo2 = session.selectOne("login_seller", vo2);
 			session.close();
 			return vo2;
 		}
+
+		
+		public UserVO id_check(UserVO vo2) {
+			SqlSession session = sqlSessionFactory.openSession();
+		UserVO vo3 = session.selectOne("id_check", vo2);
+			session.close();
+			return vo3;
+		}
+		
+		public void sellerInsert(sellerVO vo) {
+			SqlSession session=sqlSessionFactory.openSession();
+			session.insert("sellerInsert", vo);
+			session.commit(); //완료(저장)
+			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
+		}
+		
+		
+		public void userInsert(UserVO vo) {
+			SqlSession session=sqlSessionFactory.openSession();
+			session.insert("userInsert", vo);
+			session.commit(); //완료(저장)
+			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
+		}
+		
+	
+		public sellerVO sellerid_check(sellerVO vo) {
+			SqlSession session = sqlSessionFactory.openSession();
+		sellerVO vo1 = session.selectOne("sellerid_check", vo);
+			session.close();
+			return vo1;
+		}
+		
+		
 		
 		public kcal_calVO kcal_cal_man(int user_age) {
 			SqlSession session = sqlSessionFactory.openSession();
@@ -85,5 +114,33 @@ public class mainDAO {
 			SqlSession session = sqlSessionFactory.openSession();
 			kcal_calVO kcal_cal_vo= session.selectOne("kcal_cal_woman", user_age);
 			return kcal_cal_vo;
+		}
+		
+		public void testInsert(boardVO vo) {
+			SqlSession session=sqlSessionFactory.openSession();
+			session.insert("testInsert", vo);
+			session.commit(); //완료(저장)
+			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
+		}
+		
+		public  List<boardVO> testList(){
+			SqlSession session=sqlSessionFactory.openSession();
+			List<boardVO> list=session.selectList("testList");
+			session.close();
+			return list;
+		}
+		
+		public void itemInsert(itemVO vo) {
+			SqlSession session=sqlSessionFactory.openSession();
+			session.insert("itemInsert", vo);
+			session.commit(); //완료(저장)
+			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
+		}
+		
+		public void ingredientInsert(ingredientVO vo) {
+			SqlSession session=sqlSessionFactory.openSession();
+			session.insert("ingredientInsert", vo);
+			session.commit(); //완료(저장)
+			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
 		}
 }

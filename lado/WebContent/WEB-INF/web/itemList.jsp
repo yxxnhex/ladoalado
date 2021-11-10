@@ -49,7 +49,6 @@
                                 <ul>                                                                  
                                     <li><a href="<%=cpath%>/signUp.do">Join</a></li>
                                     <li><a href="<%=cpath%>/loginPage.do">Login</a></li>
-
                                 </ul>
                             </div>
                             <div class="header__logo">                                                              
@@ -71,6 +70,7 @@
                             <li><a href="<%=cpath%>/itemList.do">Menu</a></li>
                             <li><a href="<%=cpath%>/cartView.do">Cart</a></li>
                             <li><a href="<%=cpath%>/seller.html">Seller</a></li>                          
+
                         </ul>
                     </nav>
                 </div>
@@ -79,10 +79,10 @@
     </header>
 <!-- Header Section End -->
 
-
 <!-- Shop Section Begin -->
 
 <!-- search & category Section -->
+
 <section class="shop spad">
     <div class="container">
         <div class="shop__option">
@@ -165,9 +165,19 @@
                             <a href="#"><span class="arrow_carrot-right"></span></a>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="shop__last__text">
-                            <p>Showing 1-9 of 10 results</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="./detail.html">상품명 받아오기</a></h6>
+                        <div class="product__item__price">가격 받아오기</div>
+                        <div class="cart_add">
+                            <a href="#">담기</a>
                         </div>
                     </div>
                     
@@ -187,6 +197,7 @@
             </div>
         </div>
     </section>
+
 <!-- Shop Section End -->
 
 <!-- Footer Section Begin -->
@@ -215,6 +226,17 @@
 </footer>
 <!-- Footer Section End -->
 
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.barfiller.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/main.js"></script>
 
 
 

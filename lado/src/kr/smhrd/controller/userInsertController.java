@@ -32,7 +32,6 @@ public class userInsertController implements Controller {
 		mainDAO dao=new mainDAO();
 		dao.userInsert(vo);
 		
-		
 		return "redirect:/mainPage.do";
 	}
 
