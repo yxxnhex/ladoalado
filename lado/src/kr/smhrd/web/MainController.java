@@ -1,7 +1,7 @@
 package kr.smhrd.web;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,7 +39,13 @@ public class MainController extends HttpServlet {
 			if(view.indexOf("redirect:")!=-1) {
 			   //                    "/m02/boardList.do"	
 			   response.sendRedirect(cpath+view.split(":")[1]); // redirect:/boardList.do
-			}else {
+			}else if(view.indexOf("data:")!=-1) {
+				   //                    "/m02/boardList.do"	
+				PrintWriter out = response.getWriter();
+				out.print(view.split(":")[1]);
+				   //response.sendRedirect(cpath+view.split(":")[1]); // redirect:/boardList.do
+				}
+			else {
 			   //                           "boardList"->"/WEB-INF/board/boardList.jsp"	
 			   RequestDispatcher rd=request.getRequestDispatcher(ViewResolver.makeViewUrl(view));
 			   rd.forward(request, response); // View(JSP)

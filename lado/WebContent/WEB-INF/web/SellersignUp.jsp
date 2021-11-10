@@ -7,11 +7,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-    <!-- Google Font -->
+    <!-- Google Font --
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    '/2    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     
     <!-- Css Styles -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/member1.css">
@@ -26,7 +24,100 @@
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/owl.carousel.min.css" type="text/css">
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slicknav.min.css" type="text/css">
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
+	 <script src= "<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"></script>
 
+
+<script>
+
+function chkForm2() {
+    console.log("test");
+    var id = document.querySelector('input[name="seller_id"]');
+    var pw1 = document.querySelector('input[name="seller_pwd"]');
+    var pw2 = document.querySelector('input[name="seller_pwd_ck"]');
+    var name = document.querySelector('input[name="seller_name"]');
+    var phone = document.querySelector('input[name="seller_phone"]');
+    var bnum = document.querySelector('input[name="seller_bnum"]');
+    if ($('.username_input').attr("check_result") == "fail"){
+  		 alert("아이디 중복체크를 해주시기 바랍니다.");
+   	$('.username_input').focus();
+   		return false;
+   		
+ 		}
+ 
+ 
+ 
+ 
+ 
+	   
+	   //성별검사
+	  <!-- var genderVal = false;
+	   for (var i = 0; i < gender.length; i++) {
+	      //성별을 검사하면서 한개라도 체크가되어있다면
+	      if (gender[i].checked) {
+	         //true를 셋팅
+	         genderVal = true;
+	      }
+	   } -->
+	   // 전체 검사
+	   // 아이디가 공백이거나 6글자 이상이면
+	   if (id.value == '' || id.value.length < 6 ) {
+	      alert('아이디를 6자이상 입력해주세요!');
+	      //id포커스
+	      id.focus();
+	      return false;
+	   // 비밀번호가 6자리 미만이거나 숫자가 아닐때
+	   } else if (pw1.value.length < 6 || pw1.value=='') {
+	      alert('비밀번호를 6자 이상 입력해주세요!');
+	      //비밀번호 포커스
+	      pw1.focus();
+	      return false;
+	   // 비밀번호가 처음입력한 값과 다를시
+	   } else if (pw1.value != pw2.value) {
+	      alert('패스워드가 일치하지 않습니다.');
+	      pw2.focus();
+	      return false;
+	   // 성별이 체크가 안되었을시
+	  <!-- } else if (genderVal == false) {
+	      alert("성별을 입력하세요!");
+	      gender[0].focus();
+	      return false; -->
+	      // 전부완료되면 메인 페이지 이동
+	   } else {
+	      
+	      return true;
+	      
+	   }
+	}
+	
+	$('.username_input').change(function () {
+	  	$('#id_check_sucess').hide();
+	  	$('.id_overlap_button').show();
+	  	$('.username_input').attr("check_result", "fail");
+	})
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   
+	
+	
+	     	 
+	
+	</script>
 </head>
 <body>
  <div id="wrap" class="">
@@ -283,12 +374,12 @@
         
         </div>
         <div class="side_recent" style="display:none">
-        <strong class="tit">최근 본 상품</strong>
+        <strong class="tit"></strong>
         <div class="list_goods" data-height="209" style="height: 0px;">
         <ul class="list"></ul>
         </div>
-        <button type="button" class="btn btn_up off">최근 본 상품 위로 올리기</button>
-        <button type="button" class="btn btn_down off">최근 본 상품 아래로 내리기</button>
+        <button type="button" class="btn btn_up off"></button>
+        <button type="button" class="btn btn_down off"></button>
         </div>
 
         </div>
@@ -296,7 +387,7 @@
         
        
         <div class="type_form member_join ">
-        <form id="form" name="frmMember" method="post" action="/shop/member/indb.php" onsubmit="return chkForm2(this)" novalidate="">
+        <form id="form" name="frmMember" method="post" action="<%=cpath%>/sellerInsert.do" onsubmit="return chkForm2()" novalidate="">
         <input type="hidden" name="mode" value="joinMember">
         <input type="hidden" name="check_mobile" value="">
         <input type="hidden" name="auth_finish_code" value="">
@@ -311,11 +402,13 @@
         <p class="page_sub"><span class="ico">*</span>필수입력사항</p>
         <table class="tbl_comm">
         <tbody><tr class="fst">
-        <th>아이디<span class="ico">*<span class="screen_out">필수항목</span></span></th>
+        
+        <th>아이디<span class="sereen_out">*<span class="screen_out">필수항목</span></span></th>
         <td>
-        <input type="text" name="m_id" value="" maxlength="16" required="" fld_esssential="" option="regId" label="아이디" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
+        <input type="text" class="username_input" name="seller_id"  check_result="fail" value="" maxlength="16" required="" fld_esssential="" option="regId" label="아이디" placeholder="6자 이상의 문자를 입력하세요]">
         <input type="hidden" name="chk_id" required="" fld_esssential="" label="아이디중복체크" value="">
-        <a class="btn default" href="javascript:chkId()">중복확인</a>
+        <button type="button" class="id_overlap_button" onclick="Test1()">중복검사</button>
+        <img id="id_check_sucess" style="display: none;">
         <p class="txt_guide square">
         <span class="txt txt_case1">6자 이상의 영문 혹은 영문과 숫자를 조합</span>
         <span class="txt txt_case2">아이디 중복확인</span>
@@ -325,34 +418,31 @@
         <tr>
         <th>비밀번호<span class="ico">*<span class="screen_out">필수항목</span></span></th>
         <td>
-        <input type="password" name="password" required="" fld_esssential="" option="regPass" label="비밀번호" maxlength="16" class="reg_pw" placeholder="비밀번호를 입력해주세요">
+        <input type="password" name="seller_pwd" required="" fld_esssential="" option="regPass" label="비밀번호" maxlength="16" class="reg_pw" placeholder="비밀번호를 입력해주세요">
         <p class="txt_guide square">
-        <span class="txt txt_case1">10자 이상 입력</span>
-        <span class="txt txt_case2">영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합</span>
-        <span class="txt txt_case3">동일한 숫자 3개 이상 연속 사용 불가</span>
+        <span class="txt txt_case1"></span>
+        <span class="txt txt_case2"></span>
+        <span class="txt txt_case3"></span>
         </p>
         </td>
+    
         </tr>
         <tr class="member_pwd">
         <th>비밀번호확인<span class="ico">*<span class="screen_out">필수항목</span></span></th>
         <td>
-        <input type="password" name="password2" required="" fld_esssential="" option="regPass" label="비밀번호" maxlength="16" class="confirm_pw" placeholder="비밀번호를 한번 더 입력해주세요">
+        <input type="password" name="seller_pwd_ck" required="" fld_esssential="" option="regPass" label="비밀번호" maxlength="16" class="confirm_pw" placeholder="비밀번호를 한번 더 입력해주세요">
         <p class="txt_guide square">
         <span class="txt txt_case1">동일한 비밀번호를 입력해주세요.</span>
         </p>
         </td>
         </tr>
         <tr>
-        <th>이름<span class="ico">*<span class="screen_out">필수항목</span></span></th>
-        <td>
-        <input type="text" name="name" value="" required="" fld_esssential="" label="이름" placeholder="이름을 입력해주세요">
-        </td>
         </tr>
         <tr>
             <tr>
                 <th>사업자 번호<span class="ico">*<span class="screen_out"></span></span></th>
                 <td>
-                <input type="text" name="name" value="" required="" fld_esssential="" label="사업자번호" placeholder="사업자 번호를 입력해주세요">
+                <input type="text" name="seller_bnum" value="" required="" fld_esssential="" label="사업자번호" placeholder="사업자 번호를 입력해주세요">
                 </td>
                 </tr>
         
@@ -360,7 +450,7 @@
         <tr>
             <th>폰 번호<span class="ico">*<span class="screen_out"></span></span></th>
             <td>
-            <input type="text" name="name" value="" required="" fld_esssential="" label="폰번호" placeholder="폰 번호를 입력해주세요">
+            <input type="text" name="seller_phone" value="" required="" fld_esssential="" label="폰번호" placeholder="폰 번호를 입력해주세요">
             </td>
             </tr>
         <tr class="field_phone">
@@ -371,18 +461,56 @@
         
         
         </tr>
-        <tr class="select_sex">
+        <tr>
         
         <td>
         
+        <script type="text/javascript">
         
+
+        function Test1() {
+        	
+        	
+        	
+            if ($('.username_input').val() == '') {
+             	 alert('아이디를 입력해주세요.')
+              		return;
+            }
+            
+        	
+
+            id_overlap_input = document.querySelector('input[name="seller_id"]');
+
+            $.ajax({
+              	url: "selleridcheck.do",
+              	data: {
+                	'seller_id': id_overlap_input.value
+              },
+              	datatype: 'text',
+              	success: function (response) {
+              		//if(response=='ok')
+                console.log(response);
+                if (response == "no") {
+                  	alert("이미 존재하는 아이디 입니다.");
+                  	id_overlap_input.focus();
+                  	return;
+              } else {
+                  	alert("사용가능한 아이디 입니다.");
+                 	 $('.username_input').attr("check_result", "success");
+                  	$('#id_check_sucess').show();
+                  	$('.id_overlap_button').hide();
+                  return;
+                  }
+                
+              }
+            });
+          }
+        
+        </script>
         
         </td>
   
-    
-    
-       
-        
+   
         </div>
         <p class="txt_guide">
         <span class="txt bad"></span>
@@ -395,7 +523,7 @@
         </tr>
         </tbody></table>
         <div id="formSubmit" class="form_footer">
-        <button type="button" class="btn active btn_join" onclick="formJoinSubmit()">가입하기</button>
+        <button type="submit" class="btn active btn_join">가입하기</button>
         </div>
         </form>
         </div>
@@ -404,6 +532,12 @@
         </div>
         </div>
     
+        
+       
+        
+        
+        
+        
         
         
         </div>

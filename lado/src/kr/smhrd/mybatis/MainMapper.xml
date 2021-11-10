@@ -42,4 +42,19 @@
 	</select>
 	
 	
+	<select id="id_check" parameterType="kr.smhrd.model.UserVO" resultType="kr.smhrd.model.UserVO">
+		select * from users where user_id=#{user_id}
+	</select>
+	
+	<insert id="sellerInsert" parameterType="kr.smhrd.model.sellerVO">
+		insert into sellers(seller_id,seller_pwd,seller_phone,seller_bnum) 
+		values(#{seller_id},#{seller_pwd},#{seller_phone},#{seller_bnum})
+	</insert>
+	
+	<select id="sellerid_check" parameterType="kr.smhrd.model.sellerVO" resultType="kr.smhrd.model.sellerVO">
+		select * from sellers where seller_id=#{seller_id}
+	</select>
+
+
+
 </mapper>
