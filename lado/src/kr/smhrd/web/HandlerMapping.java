@@ -6,7 +6,12 @@ import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.SellersignUpController;
 import kr.smhrd.controller.cartInsertController;
 import kr.smhrd.controller.cartViewController;
+<<<<<<< HEAD
 import kr.smhrd.controller.idcheckController;
+=======
+import kr.smhrd.controller.fileUploadController;
+import kr.smhrd.controller.inputController;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
 import kr.smhrd.controller.itemContentController;
 import kr.smhrd.controller.itemListController;
 import kr.smhrd.controller.itemSearchController;
@@ -34,10 +39,16 @@ public class HandlerMapping {
 		mappings.put("/loginPage.do", new loginPageController());
 		mappings.put("/login.do", new loginController());
 		mappings.put("/logout.do", new logoutController());
+<<<<<<< HEAD
 		mappings.put("/idcheck.do", new idcheckController());
 		mappings.put("/SellersignUp.do", new SellersignUpController());
 		mappings.put("/sellerInsert.do", new sellerInsertController());
 		mappings.put("/selleridcheck.do", new selleridcheckController());
+=======
+		mappings.put("/input.do", new inputController());
+		mappings.put("/fileUpload.do", new fileUploadController());
+		
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
 
 	}
 	

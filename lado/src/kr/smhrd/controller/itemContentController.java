@@ -2,15 +2,20 @@ package kr.smhrd.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.annotations.Param;
+
 import kr.smhrd.model.ingredientVO;
 import kr.smhrd.model.itemVO;
+import kr.smhrd.model.kcal_calVO;
 import kr.smhrd.model.mainDAO;
 
 public class itemContentController implements Controller {
@@ -68,6 +73,19 @@ public class itemContentController implements Controller {
 			}
 		}
 		
+		
+		int user_age=Integer.parseInt(request.getParameter("user_age"));
+		String user_gender=request.getParameter("user_gender");
+		
+		kcal_calVO kcal_cal_vo= new kcal_calVO();
+		
+		if(user_gender.equals("man")) {
+			kcal_cal_vo=dao.kcal_cal_man(user_age);
+		}else {
+			kcal_cal_vo=dao.kcal_cal_woman(user_age);
+		}
+		
+		request.setAttribute("kcal_cal_vo", kcal_cal_vo);
 		
 				
 		return "itemContent";

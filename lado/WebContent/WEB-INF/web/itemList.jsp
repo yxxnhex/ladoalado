@@ -1,3 +1,5 @@
+<%@page import="kr.smhrd.model.sellerVO"%>
+<%@page import="kr.smhrd.model.UserVO"%>
 <%@page import="kr.smhrd.model.itemVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,7 +8,11 @@
 <%
     // Object Cating(객체형변환-제일중요)
     ArrayList<itemVO> list=(ArrayList<itemVO>)request.getAttribute("list");
-    String cpath=request.getContextPath(); // /m02    
+    String cpath=request.getContextPath(); // /m02  
+    UserVO user=(UserVO)session.getAttribute("succ");
+    sellerVO seller=(sellerVO)session.getAttribute("succ2");
+    
+    
 %>
 
 <!-- Css Styles -->
@@ -88,6 +94,28 @@
                             <input type="text" placeholder="검색">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
+            <% for(itemVO vo : list){ %>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" >
+                            <img src=<%=vo.getItem_imgurl() %>>
+                        </div>
+                        <div class="product__item__text">
+                            
+                            <form method="post" action="<%=cpath%>/itemContent.do">
+                            	<input type="hidden" name="item_num" value="<%=vo.getItem_num()%>">
+                            	<input type="hidden" name="user_gender" value="<%=user.getUser_gender()%>">
+                            	<input type="hidden" name="user_age" value="<%=user.getUser_age()%>">
+                                <input type="submit" value="<%=vo.getItem_num()%>" >
+                            </form>
+                            
+                            
+                            
+                            <div class="product__item__price"><%=vo.getItem_price()%>원</div>
+                            <div class="cart_add">
+                                <a href="#">Add to cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5">

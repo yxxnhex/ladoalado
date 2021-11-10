@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class ingredientVO {
 	private int item_num;
 	private int item_kcal;
-	private int item_name;
+	private int item_nate;
 	private int item_carbo;
 	private int item_sugar;
 	private int item_fat;

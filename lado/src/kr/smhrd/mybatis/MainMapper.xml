@@ -41,6 +41,13 @@
 		select * from sellers where seller_id=#{seller_id} and seller_pwd=#{seller_pwd}
 	</select>
 	
+	<select id="kcal_cal_man" parameterType="int" resultType="kr.smhrd.model.kcal_calVO">
+		select * from kcal_cal where gender='man' and age=#{user_age}
+	</select>
+	
+	<select id="kcal_cal_woman" parameterType="int" resultType="kr.smhrd.model.kcal_calVO">
+		select * from kcal_cal where gender='woman' and age=#{user_age}
+	</select>
 	
 	<select id="id_check" parameterType="kr.smhrd.model.UserVO" resultType="kr.smhrd.model.UserVO">
 		select * from users where user_id=#{user_id}

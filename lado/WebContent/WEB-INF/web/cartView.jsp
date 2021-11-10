@@ -1,3 +1,5 @@
+<%@page import="kr.smhrd.model.sellerVO"%>
+<%@page import="kr.smhrd.model.UserVO"%>
 <%@page import="kr.smhrd.model.cartViewVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="kr.smhrd.model.cartVO"%>
@@ -10,6 +12,9 @@
     String cpath=request.getContextPath(); // /m02    
     ArrayList<cartViewVO> list=(ArrayList<cartViewVO>)request.getAttribute("list");
 
+    UserVO user=(UserVO)session.getAttribute("succ");
+    sellerVO seller=(sellerVO)session.getAttribute("succ2");
+    
 %>
 
 	<!-- Google Font -->

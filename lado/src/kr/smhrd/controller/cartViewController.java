@@ -20,11 +20,9 @@ public class cartViewController implements Controller {
 			throws ServletException, IOException {
 
 		
-//		int user_num=Integer.parseInt(request.getParameter("user_num"));
+	 	int user_num=Integer.parseInt(request.getParameter("user_num"));
 		
-		int user_num=2;
-		
-		
+		System.out.println(user_num);
 		
 		CartDAO dao=new CartDAO();
 		List<cartViewVO> list=dao.cartView(user_num);

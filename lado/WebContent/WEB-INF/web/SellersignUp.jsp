@@ -120,6 +120,7 @@ function chkForm2() {
 	</script>
 </head>
 <body>
+<<<<<<< HEAD
  <div id="wrap" class="">
         <div id="pos_scroll"></div>
         <div id="container">
@@ -381,8 +382,20 @@ function chkForm2() {
         <button type="button" class="btn btn_up off"></button>
         <button type="button" class="btn btn_down off"></button>
         </div>
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
 
+  <h2>판매자 회원가입</h2>
+  <div>
+    <div>
+      <form action="<%=cpath%>/userInsert.do" method="post">
+        <div>
+          <label for="title">아이디:</label>
+          <div>
+            <input type="text" name="user_id"  placeholder="Enter id">
+          </div>
         </div>
+<<<<<<< HEAD
         <div class="page_aticle">
         
        
@@ -511,7 +524,15 @@ function chkForm2() {
         </td>
   
    
+=======
+        <div>
+          <label for="contents">비밀번호:</label>
+          <div>
+            <input type="password" name="user_pwd"  placeholder="Enter password">
+          </div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
         </div>
+<<<<<<< HEAD
         <p class="txt_guide">
         <span class="txt bad"></span>
         </p>
@@ -524,9 +545,21 @@ function chkForm2() {
         </tbody></table>
         <div id="formSubmit" class="form_footer">
         <button type="submit" class="btn active btn_join">가입하기</button>
+=======
+        <div>
+          <label for="writer">핸드폰번호:</label>
+          <div>
+            <input type="text" name="user_phone" placeholder="(-)없이 11자만 작성해주세요">
+          </div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
         </div>
-        </form>
+        <div>
+          <div>
+            <button type="submit" class="btn btn-primary btn-sm">회원가입</button>
+            <button type="reset" class="btn btn-warning btn-sm">취소</button>
+          </div>
         </div>
+<<<<<<< HEAD
         <iframe id="ifrmRnCheck" name="ifrmRnCheck" style="display:none;"></iframe>
         <iframe id="ifrmHpauth" name="ifrmHpauth" style="display:none;"></iframe>
         </div>
@@ -751,3 +784,14 @@ function chkForm2() {
 	}
 	// ]]>
 </script></body></html>
+=======
+      </form>
+    </div>
+</div>
+
+
+
+
+</body> 
+</html>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
