@@ -1,3 +1,6 @@
+<%@page import="kr.smhrd.model.kcal_calVO"%>
+<%@page import="kr.smhrd.model.sellerVO"%>
+<%@page import="kr.smhrd.model.UserVO"%>
 <%@page import="kr.smhrd.model.ingredientVO"%>
 <%@page import="kr.smhrd.model.itemVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -10,7 +13,25 @@
 	ingredientVO vo3 = (ingredientVO) request.getAttribute("vo3");
 	itemVO vo4 = (itemVO) request.getAttribute("vo4");
 	itemVO vo6 = (itemVO) request.getAttribute("vo6");
+	
+	kcal_calVO kcal_cal_vo= (kcal_calVO) request.getAttribute("kcal_cal_vo");
+	
+	
 	String cpath = request.getContextPath(); // /m02
+	
+	UserVO user=(UserVO)session.getAttribute("succ");
+    sellerVO seller=(sellerVO)session.getAttribute("succ2");
+	
+    
+    int item1_serve=vo.getItem_serve();
+    int item1_kcal=vo1.getItem_kcal();
+    int kcal_cal=kcal_cal_vo.getKcal();
+    int hundred=100;
+    int item1_kcal_cal=(item1_kcal/item1_serve)*hundred/kcal_cal;
+    
+    
+    
+    
 %>
 
 <!-- Google Font -->
@@ -53,16 +74,6 @@
     </div>
 
 <div>
-<form action="<%=cpath%>/cartInsert.do" method="post">
-		  <div>
-		  <li> <span class="arrow_carrot-down"></span>
-		  			<ul><input type="hidden" name="user_num" value="<%=vo.getItem_num()%>"></ul>
-		  			<ul><input type="hidden" name="item_num" value="<%=vo.getItem_num()%>"></ul>
-                    <ul><input type="text" name="cart_cnt"  placeholder="수량입력"></ul>
-                    <ul><%=vo.getItem_name() %></ul>
-                    <input type="submit" value="장바구니 담기" />
-           			<input type="reset" value="취소" />
-          </li>
 		     
        
        
@@ -197,6 +208,35 @@
                             </div>
                             <div class="pt__item">
                                 
+		  <div>
+                                <form action="<%=cpath%>/cartInsert.do" method="post">
+		   <span class="arrow_carrot-down"></span>
+		  			<input type="hidden" name="user_num" value="<%=user.getUser_num()%>">
+		  			<input type="hidden" name="item_num" value="<%=vo.getItem_num()%>">
+					
+					
+					
+					
+					
+					
+					<!--  테스트 -->		  			
+		  			<h2><%=kcal_cal_vo.getKcal() %></h2>
+		  			<!--  테스트 -->		
+		  			
+		  			
+		  			
+		  			
+		  			
+		  			
+		  			<h2><%=vo.getItem_name() %></h2>
+		  			<h2><%=vo.getItem_price() %></h2>
+                    <input type="text" name="cart_cnt"  placeholder="수량입력">
+                    <input type="submit" value="장바구니 담기" />
+           			<input type="reset" value="취소" />
+           			</form>
+          </li>
+                                
+                                
                             </div>
                             <div class="pt__item">
                                 
@@ -262,17 +302,23 @@
 							var chart = new Chart(ctx, { 
 							type: 'bar',  
 							data: { 
-								labels: ['열량(kcal)', '나트륨(%)', '탄수화물(%)', '당류(%)', '지방(%)', '트랜스지방(mg)', '포화지방(%)', '콜레스테롤(%)', '단백질(%)'], 
+								labels: ['열량(%)', '나트륨(%)', '탄수화물(%)', '당류(%)', '지방(%)', '트랜스지방(mg)', '포화지방(%)', '콜레스테롤(%)', '단백질(%)'], 
 								datasets: [{  
 									label: '<%=vo.getItem_name()%>',
 									backgroundColor: 'rgba(255, 99, 132, 0.5)', 
 										borderColor: 'rgb(255, 99, 132,1.5)', 
-											data: [ <%=vo1.getItem_kcal()%> , <%=vo1.getItem_name()%>, <%=vo1.getItem_carbo()%>, <%=vo1.getItem_sugar()%>, <%=vo1.getItem_fat()%>, <%=vo1.getItem_trans()%>, <%=vo1.getItem_sat()%>, <%=vo1.getItem_col()%>, <%=vo1.getItem_protein()%>] 
+											data: [ <%=vo1.getItem_kcal()/vo.getItem_serve()*100/kcal_cal_vo.getKcal()%> , <%=vo1.getItem_nate()/vo.getItem_serve()%>, 
+											<%=vo1.getItem_carbo()/vo.getItem_serve()%>, <%=vo1.getItem_sugar()/vo.getItem_serve()%>, 
+											<%=vo1.getItem_fat()/vo.getItem_serve()%>, <%=vo1.getItem_trans()/vo.getItem_serve()%>, 
+											<%=vo1.getItem_sat()/vo.getItem_serve()%>, <%=vo1.getItem_col()/vo.getItem_serve()%>, <%=vo1.getItem_protein()/vo.getItem_serve()%>] 
 								},
 								{label: '<%=vo2.getItem_name()%>',
 								backgroundColor: '#F7464A', 
 									borderColor: '#F7464A', 
-										data: [<%=vo3.getItem_kcal()%> , <%=vo3.getItem_name()%>, <%=vo3.getItem_carbo()%>, <%=vo3.getItem_sugar()%>, <%=vo3.getItem_fat()%>, <%=vo3.getItem_trans()%>, <%=vo3.getItem_sat()%>, <%=vo3.getItem_col()%>, <%=vo3.getItem_protein()%>]}
+										data: [<%=vo3.getItem_kcal()/vo2.getItem_serve()*100/kcal_cal_vo.getKcal()%> , <%=vo3.getItem_nate()/vo.getItem_serve()%>, 
+										<%=vo3.getItem_carbo()/vo.getItem_serve()%>, <%=vo3.getItem_sugar()/vo.getItem_serve()%>, 
+										<%=vo3.getItem_fat()/vo.getItem_serve()%>, <%=vo3.getItem_trans()/vo.getItem_serve()%>, 
+										<%=vo3.getItem_sat()/vo.getItem_serve()%>, <%=vo3.getItem_col()/vo.getItem_serve()%>, <%=vo3.getItem_protein()/vo.getItem_serve()%>]}
 								] }, 
 								options: { 
 									title: { 

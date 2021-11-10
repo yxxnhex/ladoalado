@@ -88,18 +88,25 @@
                                     <a href="" onclick="">About Us</a>
                                 </li>
                                 <li>
-                                    <a href="" onclick="">My Page</a>
+                                    <a href="/lado/input.do">input</a>
                                 </li>
                                 <li>
-                                	<from action="<%=cpath%>/cartView.do" method="post">
                                     <a href="/lado/cartView.do">Cart</a>
-                                    </from>
                                 </li>
                                 <li>
                                     <a href="/lado/signUp.do">회원가입</a>
                                 </li>
                             
                         </div>
+                        <%if(user == null){ %>
+                        <a href="/lado/loginPage.do">회원가입</a>
+                        <%}else{ %>
+                        <form action="<%=cpath%>/cartView.do" method="post">
+                        <input type="hidden" name="user_num" value="<%=user.getUser_num()%>">
+                        <input type="submit" value="Cart" />
+           				</form>
+                        <%} %>
+                        
                     </div>
                 </div>
             </nav>

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.cartInsertController;
 import kr.smhrd.controller.cartViewController;
+import kr.smhrd.controller.fileUploadController;
+import kr.smhrd.controller.inputController;
 import kr.smhrd.controller.itemContentController;
 import kr.smhrd.controller.itemListController;
 import kr.smhrd.controller.itemSearchController;
@@ -30,6 +32,9 @@ public class HandlerMapping {
 		mappings.put("/loginPage.do", new loginPageController());
 		mappings.put("/login.do", new loginController());
 		mappings.put("/logout.do", new logoutController());
+		mappings.put("/input.do", new inputController());
+		mappings.put("/fileUpload.do", new fileUploadController());
+		
 
 	}
 	public Controller getController(String key) {
