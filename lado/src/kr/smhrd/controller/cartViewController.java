@@ -22,7 +22,7 @@ public class cartViewController implements Controller {
 		
 	 	int user_num=Integer.parseInt(request.getParameter("user_num"));
 		
-		
+		System.out.println(user_num);
 		
 		CartDAO dao=new CartDAO();
 		List<cartViewVO> list=dao.cartView(user_num);

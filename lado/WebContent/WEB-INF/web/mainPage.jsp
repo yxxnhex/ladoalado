@@ -83,7 +83,7 @@
                                     <a href="" onclick="">About Us</a>
                                 </li>
                                 <li>
-                                    <a href="" onclick="">My Page</a>
+                                    <a href="/lado/input.do">input</a>
                                 </li>
                                 <li>
                                     <a href="/lado/cartView.do">Cart</a>
@@ -97,8 +97,7 @@
                         <a href="/lado/loginPage.do">회원가입</a>
                         <%}else{ %>
                         <form action="<%=cpath%>/cartView.do" method="post">
-                        <input type="hidden" name="user_gender" value="<%=user.getUser_gender()%>">
-                        <input type="hidden" name="user_age" value="<%=user.getUser_age()%>">
+                        <input type="hidden" name="user_num" value="<%=user.getUser_num()%>">
                         <input type="submit" value="Cart" />
            				</form>
                         <%} %>

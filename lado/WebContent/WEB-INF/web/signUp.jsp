@@ -9,6 +9,8 @@
 <head>
 
 
+  
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -26,6 +28,7 @@
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/owl.carousel.min.css" type="text/css">
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slicknav.min.css" type="text/css">
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
+     <script src= "<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"></script>
 
 
 <script>
@@ -37,46 +40,101 @@ function chkForm2() {
       var name = document.querySelector('input[name="usre_name"]');
       var gender = document.querySelectorAll('input[name="user_gender"]');
       var age = document.querySelector('input[name="user_age"]');
-   
-      //성별검사
-      var genderVal = false;
-      for (var i = 0; i < gender.length; i++) {
-         //성별을 검사하면서 한개라도 체크가되어있다면
-         if (gender[i].checked) {
-            //true를 셋팅
-            genderVal = true;
+      if ($('.username_input').attr("check_result") == "fail"){
+           alert("아이디 중복체크를 해주시기 바랍니다.");
+        $('.username_input').focus();
+           return false;
          }
+   
+   
+   
+   
+   
+   
+   //성별검사
+   var genderVal = false;
+   for (var i = 0; i < gender.length; i++) {
+      //성별을 검사하면서 한개라도 체크가되어있다면
+      if (gender[i].checked) {
+         //true를 셋팅
+         genderVal = true;
       }
-      // 전체 검사
-      // 아이디가 공백이거나 4글자 미만이면
-      if (id.value == '' || id.value.length < 6 ) {
-         alert('아이디를 6자이상 입력해주세요!');
-         //id포커스
-         id.focus();
-         return false;
-      // 비밀번호가 4자리 미만이거나 숫자가 아닐때
-      } else if (pw1.value.length < 6 || pw1.value=='') {
-         alert('비밀번호를 6자 이상 입력해주세요!');
-         //비밀번호 포커스
-         pw1.focus();
-         return false;
-      // 비밀번호가 처음입력한 값과 다를시
-      } else if (pw1.value != pw2.value) {
-         alert('패스워드가 일치하지 않습니다.');
-         pw2.focus();
-         return false;
-      // 성별이 체크가 안되었을시
-      } else if (genderVal == false) {
-         alert("성별을 입력하세요!");
-         gender[0].focus();
-         return false;
-         // 전부완료되면 메인 페이지 이동
-      } else {
-         
-         return true;
-         
-      }
+   }
+   // 전체 검사
+   // 아이디가 공백이거나 4글자 미만이면
+   if (id.value == '' || id.value.length < 6 ) {
+      alert('아이디를 6자이상 입력해주세요!');
+      //id포커스
+      id.focus();
+      return false;
+   // 비밀번호가 4자리 미만이거나 숫자가 아닐때
+   } else if (pw1.value.length < 6 || pw1.value=='') {
+      alert('비밀번호를 6자 이상 입력해주세요!');
+      //비밀번호 포커스
+      pw1.focus();
+      return false;
+   // 비밀번호가 처음입력한 값과 다를시
+   } else if (pw1.value != pw2.value) {
+      alert('패스워드가 일치하지 않습니다.');
+      pw2.focus();
+      return false;
+   // 성별이 체크가 안되었을시
+   } else if (genderVal == false) {
+      alert("성별을 입력하세요!");
+      gender[0].focus();
+      return false;
+      // 전부완료되면 메인 페이지 이동
+   } else {
+      
+      return true;
+      
+   }
 }
+$('.username_input').change(function () {
+     $('#id_check_sucess').hide();
+     $('.id_overlap_button').show();
+     $('.username_input').attr("check_result", "fail");
+})
+      function id_overlap_check() {
+
+           
+
+
+           if ($('.username_input').val() == '') {
+                alert('아이디를 입력해주세요.')
+                   return;
+           }
+           
+        
+
+           id_overlap_input = document.querySelector('input[name="user_id"]');
+
+           $.ajax({
+                url: "idcheck.do",
+                data: {
+                  'user_id': id_overlap_input.value
+             },
+                datatype: 'text',
+                success: function (response) {
+                   //if(response=='ok')
+               console.log(response);
+               if (response == "no") {
+                    alert("이미 존재하는 아이디 입니다.");
+                    id_overlap_input.focus();
+                    return;
+             } else {
+                    alert("사용가능한 아이디 입니다.");
+                    $('.username_input').attr("check_result", "success");
+                    $('#id_check_sucess').show();
+                    $('.id_overlap_button').hide();
+                 return;}
+               
+             }
+           });
+         }
+
+         
+
 </script>
 </head>
 <body>
@@ -399,15 +457,15 @@ function chkForm2() {
         <p class="page_sub"><span class="ico">*</span>필수입력사항</p>
         <table class="tbl_comm">
         <tbody><tr class="fst">
-        <th>아이디<span class="username_input">*<span class="screen_out">필수항목</span></span></th>
+        <th>아이디<span>*<span class="screen_out">필수항목</span></span></th>
         <td>
-          <input type="text" name="user_id" value="" maxlength="16" required="" fld_esssential="" option="regId" label="아이디" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
+         <input type="text" class="username_input" name="user_id" check_result="fail" value=""  maxlength="16" required="" fld_esssential="" option="regId" label="아이디" placeholder="6자 이상의 문자를 입력하세요]"/>
         <input type="hidden" name="chk_id" required="" fld_esssential="" label="아이디중복체크" value="">
-        <a class="btn default" href="javascript:chkId()">중복확인</a>
-        <img id="id_check_sucess" style="display: none;">
+      <button type="button" class="id_overlap_button" onclick="id_overlap_check();">중복검사</button>
+
+       <img id="id_check_sucess" style="display: none;">
         <p class="txt_guide square">
         <span class="txt txt_case1">6자 이상의 영문 혹은 영문과 숫자를 조합</span>
-        <span class="txt txt_case2">아이디 중복확인</span>
         </p>
         </td>
         </tr>
@@ -569,60 +627,7 @@ function chkForm2() {
    else {
       console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
    }
+
 </script>
-<script>
-
-   /*window.addEventListener('load', function() {
-      var signup = document.querySelector('#signup');
-      
-      //signup버튼을 클릭했을때
-      signup.addEventListener('click', function() {
-         var id = document.querySelector('.user_name');
-         var pw1 = document.querySelector('.user_pwd');
-         var pw2 = document.querySelector('#user_pwd2');
-         var gender = document.querySelectorAll(".gender");
-         var age = document.querySelector('.age');
-      
-         //성별검사
-         var genderVal = false;
-         for (var i = 0; i < gender.length; i++) {
-            //성별을 검사하면서 한개라도 체크가되어있다면
-            if (gender[i].checked) {
-               //true를 셋팅
-               genderVal = true;
-            }
-         }
-         // 전체 검사
-         // 아이디가 공백이거나 4글자 미만이면
-         if (id.value == '' || id.value.length < 4) {
-            alert('아이디를 4자이상!');
-            //id포커스
-            id.focus();
-         // 비밀번호가 4자리 미만이거나 숫자가 아닐때
-         } else if (pw1.value.length < 4 || isNaN(pw1.value)) {
-            alert('비번 숫자로 4자이상쓰셈');
-            //비밀번호 포커스
-            pw1.focus();
-         // 비밀번호가 처음입력한 값과 다를시
-         } else if (pw1.value != pw2.value) {
-            alert('패스워드가 일치하지 않습니다.');
-            pw2.focus();
-         // 성별이 체크가 안되었을시
-         } else if (genderVal == false) {
-            alert("성별을 입력하세요!");
-            gender[0].focus();
-            // 전부완료되면 메인 페이지 이동
-         } else {
-            location.href = "";
-         }
-
-      });
-   });*/
-   
-</script>
-
-
-
-
 </body>
 </html>
