@@ -12,6 +12,10 @@ public class SellersignUpController implements Controller{
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
+		
+		
+		
+		
 		return "SellersignUp";
 	}
 }	

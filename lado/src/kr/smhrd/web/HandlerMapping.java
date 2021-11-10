@@ -3,8 +3,10 @@ package kr.smhrd.web;
 import java.util.HashMap;
 
 import kr.smhrd.controller.Controller;
+import kr.smhrd.controller.SellersignUpController;
 import kr.smhrd.controller.cartInsertController;
 import kr.smhrd.controller.cartViewController;
+import kr.smhrd.controller.idcheckController;
 import kr.smhrd.controller.fileUploadController;
 import kr.smhrd.controller.inputController;
 import kr.smhrd.controller.itemContentController;
@@ -14,6 +16,8 @@ import kr.smhrd.controller.loginController;
 import kr.smhrd.controller.loginPageController;
 import kr.smhrd.controller.logoutController;
 import kr.smhrd.controller.mainPageController;
+import kr.smhrd.controller.sellerInsertController;
+import kr.smhrd.controller.selleridcheckController;
 import kr.smhrd.controller.signUpController;
 import kr.smhrd.controller.testController;
 import kr.smhrd.controller.userInsertController;
@@ -33,6 +37,10 @@ public class HandlerMapping {
 		mappings.put("/loginPage.do", new loginPageController());
 		mappings.put("/login.do", new loginController());
 		mappings.put("/logout.do", new logoutController());
+		mappings.put("/idcheck.do", new idcheckController());
+		mappings.put("/SellersignUp.do", new SellersignUpController());
+		mappings.put("/sellerInsert.do", new sellerInsertController());
+		mappings.put("/selleridcheck.do", new selleridcheckController());
 		mappings.put("/input.do", new inputController());
 		mappings.put("/fileUpload.do", new fileUploadController());
 		mappings.put("/test.do", new testController());
@@ -40,6 +48,8 @@ public class HandlerMapping {
 		
 
 	}
+	
+	
 	public Controller getController(String key) {
 		return mappings.get(key);
 	}

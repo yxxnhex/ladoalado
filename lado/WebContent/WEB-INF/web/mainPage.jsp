@@ -89,7 +89,10 @@
                                     <a href="/lado/cartView.do">Cart</a>
                                 </li>
                                 <li>
-                                    <a href="/lado/signUp.do">회원가입</a>
+                                    <a href="/lado/signUp.do">구매자 회원가입</a>
+                                </li>
+                                <li>
+                                    <a href="/lado/SellersignUp.do">판매자 회원가입</a>
                                 </li>
                             
                         </div>
