@@ -49,4 +49,12 @@
 		select * from kcal_cal where gender='woman' and age=#{user_age}
 	</select>
 	
+	<insert id="testInsert" parameterType="kr.smhrd.model.boardVO">
+		insert into board(file_name,file_path,filename) 
+		values(#{file_name},#{file_path},#{filename})
+	</insert>
+	
+	<select id="testList" resultType="kr.smhrd.model.boardVO">
+		select * from board
+	</select>
 </mapper>

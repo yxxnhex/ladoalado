@@ -80,7 +80,7 @@
                                     <a href="/lado/itemList.do">Menu</a>
                                 </li>
                                 <li>
-                                    <a href="" onclick="">About Us</a>
+                                    <a href="/lado/test.do">test</a>
                                 </li>
                                 <li>
                                     <a href="/lado/input.do">input</a>

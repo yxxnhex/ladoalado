@@ -86,4 +86,18 @@ public class mainDAO {
 			kcal_calVO kcal_cal_vo= session.selectOne("kcal_cal_woman", user_age);
 			return kcal_cal_vo;
 		}
+		
+		public void testInsert(boardVO vo) {
+			SqlSession session=sqlSessionFactory.openSession();
+			session.insert("testInsert", vo);
+			session.commit(); //완료(저장)
+			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
+		}
+		
+		public  List<boardVO> testList(){
+			SqlSession session=sqlSessionFactory.openSession();
+			List<boardVO> list=session.selectList("testList");
+			session.close();
+			return list;
+		}
 }

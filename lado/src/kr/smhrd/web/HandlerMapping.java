@@ -15,6 +15,7 @@ import kr.smhrd.controller.loginPageController;
 import kr.smhrd.controller.logoutController;
 import kr.smhrd.controller.mainPageController;
 import kr.smhrd.controller.signUpController;
+import kr.smhrd.controller.testController;
 import kr.smhrd.controller.userInsertController;
 
 public class HandlerMapping {
@@ -34,6 +35,8 @@ public class HandlerMapping {
 		mappings.put("/logout.do", new logoutController());
 		mappings.put("/input.do", new inputController());
 		mappings.put("/fileUpload.do", new fileUploadController());
+		mappings.put("/test.do", new testController());
+		
 		
 
 	}

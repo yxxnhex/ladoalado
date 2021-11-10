@@ -1,7 +1,7 @@
 <%@page import="kr.smhrd.model.sellerVO"%>
 <%@page import="kr.smhrd.model.UserVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
     
 <%
@@ -16,16 +16,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<form action="<%=cpath%>/fileUpload" method="post" enctype="multipart/form-data" >
-		ΖΔΐΟ Ό³Έν : <input type="text" name="description"><br>
-		ΖΔΐΟ1 : <input type="file" name="file1"><br>
-		ΖΔΐΟ2 : <input type="file" name="file1"><br>
-		<input type="submit" value="ΐόΌΫ">
+	<form action="<%=cpath%>/fileUpload.do" method="post" enctype="multipart/form-data" >
+		νμΌ μ„¤λª… : <input type="text" name="description"><br>
+		νμΌλª… : <input type="text" name="file_name"><br>
+		νμΌ1 : <input type="file" name="file"><br>
+		<input type="submit" value="μ „μ†΅">
 	
 	
 	</form>
