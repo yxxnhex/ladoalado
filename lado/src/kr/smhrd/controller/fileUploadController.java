@@ -19,6 +19,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.smhrd.model.boardVO;
+import kr.smhrd.model.itemVO;
 import kr.smhrd.model.mainDAO;
 
 
@@ -41,18 +42,29 @@ public class fileUploadController implements Controller {
 		
 		MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
 		
-		String m_name=multi.getParameter("file_name");
+		String item_name=multi.getParameter("item_name");
+		String item_company=multi.getParameter("item_company");
+		int item_price=Integer.parseInt(multi.getParameter("item_price"));
+		int item_serve=Integer.parseInt(multi.getParameter("item_serve"));
+		int item_time=Integer.parseInt(multi.getParameter("item_time"));
+		int item_gram=Integer.parseInt(multi.getParameter("item_gram"));
+		int seller_num=Integer.parseInt(multi.getParameter("seller_num"));
 		String fileName=multi.getFilesystemName("file");
 		String m_fileFullPath = "img" + File.separator + fileName;
 		
-		boardVO vo = new boardVO();
-		
-		vo.setFile_name(m_name);
-		vo.setFile_path(m_fileFullPath);
-		vo.setFilename(fileName);
+
+		itemVO vo = new itemVO();
+		vo.setItem_name(item_name);
+		vo.setItem_company(item_company);
+		vo.setItem_price(item_price);
+		vo.setItem_serve(item_serve);
+		vo.setItem_time(item_time);
+		vo.setItem_gram(item_gram);
+		vo.setItem_imgurl(m_fileFullPath);
+		vo.setSeller_num(seller_num);
 		
 		mainDAO dao = new mainDAO();
-		dao.testInsert(vo);
+		dao.itemInsert(vo);
 		
 		
 		
@@ -106,7 +118,7 @@ public class fileUploadController implements Controller {
 		
 		
 		
-		return "redirect:/mainPage.do";
+		return "inputIngredient";
 	}
 
 }

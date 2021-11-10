@@ -7,8 +7,10 @@ import kr.smhrd.controller.SellersignUpController;
 import kr.smhrd.controller.cartInsertController;
 import kr.smhrd.controller.cartViewController;
 import kr.smhrd.controller.idcheckController;
+import kr.smhrd.controller.ingredientUploadController;
 import kr.smhrd.controller.fileUploadController;
 import kr.smhrd.controller.inputController;
+import kr.smhrd.controller.inputIngredientController;
 import kr.smhrd.controller.itemContentController;
 import kr.smhrd.controller.itemListController;
 import kr.smhrd.controller.itemSearchController;
@@ -42,8 +44,10 @@ public class HandlerMapping {
 		mappings.put("/sellerInsert.do", new sellerInsertController());
 		mappings.put("/selleridcheck.do", new selleridcheckController());
 		mappings.put("/input.do", new inputController());
+		mappings.put("/inputIngredient.do", new inputIngredientController());
 		mappings.put("/fileUpload.do", new fileUploadController());
 		mappings.put("/test.do", new testController());
+		mappings.put("/ingredientUpload.do", new ingredientUploadController());
 		
 		
 

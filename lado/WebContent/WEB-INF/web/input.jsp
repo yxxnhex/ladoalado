@@ -22,11 +22,16 @@
 <body>
 
 	<form action="<%=cpath%>/fileUpload.do" method="post" enctype="multipart/form-data" >
-		파일 설명 : <input type="text" name="description"><br>
-		파일명 : <input type="text" name="file_name"><br>
+		밀키트 상품명 : <input type="text" name="item_name"><br>
+		제조사 : <input type="text" name="item_company"><br>
+		가격 : <input type="number" name="item_price"><br>
+		인분 : <input type="number" name="item_serve"><br>
+		제조시간 : <input type="number" name="item_time"><br>
+		무게 : <input type="number" name="item_gram"><br>
 		파일1 : <input type="file" name="file"><br>
-		<input type="submit" value="전송">
-	
+		<input type="submit" value="상품등록">
+		<input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>">
+		
 	
 	</form>
 		

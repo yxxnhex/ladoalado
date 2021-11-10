@@ -243,7 +243,6 @@
                 <div class="col-lg-6">
                     <div class="product__details__text">
                         <div class="product__label">Cupcake</div>
-                        <h4><a href="<%=cpath%>/itemContent.do?item_num=<%=vo.getItem_num()%>"><%=vo.getItem_name()%></a></h4>
                         <div class="product__item__price">
                         	<h5><%=vo.getItem_price()%>원</h5>
                         </div>

@@ -41,17 +41,10 @@ function chkForm2() {
       var gender = document.querySelectorAll('input[name="user_gender"]');
       var age = document.querySelector('input[name="user_age"]');
       if ($('.username_input').attr("check_result") == "fail"){
-<<<<<<< HEAD
-    		 alert("아이디 중복체크를 해주시기 바랍니다.");
-     	$('.username_input').focus();
-     		return false;
-   		}
-=======
            alert("아이디 중복체크를 해주시기 바랍니다.");
         $('.username_input').focus();
            return false;
          }
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
    
    
    
@@ -97,60 +90,13 @@ function chkForm2() {
       
    }
 }
-<<<<<<< HEAD
 
-$('.username_input').change(function () {
-  	$('#id_check_sucess').hide();
-  	$('.id_overlap_button').show();
-  	$('.username_input').attr("check_result", "fail");
-})
-
-      function id_overlap_check() {
-
-    	    
-
-
-    	    if ($('.username_input').val() == '') {
-    	     	 alert('아이디를 입력해주세요.')
-    	      		return;
-    	    }
-    	    
-     	
-
-    	    id_overlap_input = document.querySelector('input[name="user_id"]');
-
-    	    $.ajax({
-    	      	url: "idcheck.do",
-    	      	data: {
-    	        	'user_id': id_overlap_input.value
-    	      },
-    	      	datatype: 'text',
-    	      	success: function (response) {
-    	      		//if(response=='ok')
-    	        console.log(response);
-    	        if (response == "no") {
-    	          	alert("이미 존재하는 아이디 입니다.");
-    	          	id_overlap_input.focus();
-    	          	return;
-    	      } else {
-    	          	alert("사용가능한 아이디 입니다.");
-    	         	 $('.username_input').attr("check_result", "success");
-    	          	$('#id_check_sucess').show();
-    	          	$('.id_overlap_button').hide();
-    	          return;
-    	          }
-    	        
-    	      }
-    	    });
-    	  }
-
-     	 
-=======
 $('.username_input').change(function () {
      $('#id_check_sucess').hide();
      $('.id_overlap_button').show();
      $('.username_input').attr("check_result", "fail");
 })
+
       function id_overlap_check() {
 
            
@@ -183,14 +129,14 @@ $('.username_input').change(function () {
                     $('.username_input').attr("check_result", "success");
                     $('#id_check_sucess').show();
                     $('.id_overlap_button').hide();
-                 return;}
+                 return;
+                 }
                
              }
            });
          }
 
          
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
 
 </script>
 </head>
@@ -514,23 +460,14 @@ $('.username_input').change(function () {
         <p class="page_sub"><span class="ico">*</span>필수입력사항</p>
         <table class="tbl_comm">
         <tbody><tr class="fst">
-<<<<<<< HEAD
         
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
         <th>아이디<span>*<span class="screen_out">필수항목</span></span></th>
         <td>
          <input type="text" class="username_input" name="user_id" check_result="fail" value=""  maxlength="16" required="" fld_esssential="" option="regId" label="아이디" placeholder="6자 이상의 문자를 입력하세요]"/>
         <input type="hidden" name="chk_id" required="" fld_esssential="" label="아이디중복체크" value="">
-<<<<<<< HEAD
-		<button type="button" class="id_overlap_button" onclick="id_overlap_check();">중복검사</button>
-
-    	<img id="id_check_sucess" style="display: none;">
-=======
       <button type="button" class="id_overlap_button" onclick="id_overlap_check();">중복검사</button>
 
        <img id="id_check_sucess" style="display: none;">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
         <p class="txt_guide square">
         <span class="txt txt_case1">6자 이상의 영문 혹은 영문과 숫자를 조합</span>
         </p>

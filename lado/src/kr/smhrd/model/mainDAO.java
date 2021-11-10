@@ -129,4 +129,18 @@ public class mainDAO {
 			session.close();
 			return list;
 		}
+		
+		public void itemInsert(itemVO vo) {
+			SqlSession session=sqlSessionFactory.openSession();
+			session.insert("itemInsert", vo);
+			session.commit(); //완료(저장)
+			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
+		}
+		
+		public void ingredientInsert(ingredientVO vo) {
+			SqlSession session=sqlSessionFactory.openSession();
+			session.insert("ingredientInsert", vo);
+			session.commit(); //완료(저장)
+			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
+		}
 }

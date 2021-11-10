@@ -24,7 +24,7 @@
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/owl.carousel.min.css" type="text/css">
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slicknav.min.css" type="text/css">
      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
-	 <script src= "<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"></script>
+    <script src= "<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"></script>
 
 
 <script>
@@ -38,64 +38,64 @@ function chkForm2() {
     var phone = document.querySelector('input[name="seller_phone"]');
     var bnum = document.querySelector('input[name="seller_bnum"]');
     if ($('.username_input').attr("check_result") == "fail"){
-  		 alert("아이디 중복체크를 해주시기 바랍니다.");
-   	$('.username_input').focus();
-   		return false;
-   		
- 		}
+         alert("아이디 중복체크를 해주시기 바랍니다.");
+      $('.username_input').focus();
+         return false;
+         
+       }
  
  
  
  
  
-	   
-	   //성별검사
-	  <!-- var genderVal = false;
-	   for (var i = 0; i < gender.length; i++) {
-	      //성별을 검사하면서 한개라도 체크가되어있다면
-	      if (gender[i].checked) {
-	         //true를 셋팅
-	         genderVal = true;
-	      }
-	   } -->
-	   // 전체 검사
-	   // 아이디가 공백이거나 6글자 이상이면
-	   if (id.value == '' || id.value.length < 6 ) {
-	      alert('아이디를 6자이상 입력해주세요!');
-	      //id포커스
-	      id.focus();
-	      return false;
-	   // 비밀번호가 6자리 미만이거나 숫자가 아닐때
-	   } else if (pw1.value.length < 6 || pw1.value=='') {
-	      alert('비밀번호를 6자 이상 입력해주세요!');
-	      //비밀번호 포커스
-	      pw1.focus();
-	      return false;
-	   // 비밀번호가 처음입력한 값과 다를시
-	   } else if (pw1.value != pw2.value) {
-	      alert('패스워드가 일치하지 않습니다.');
-	      pw2.focus();
-	      return false;
-	   // 성별이 체크가 안되었을시
-	  <!-- } else if (genderVal == false) {
-	      alert("성별을 입력하세요!");
-	      gender[0].focus();
-	      return false; -->
-	      // 전부완료되면 메인 페이지 이동
-	   } else {
-	      
-	      return true;
-	      
-	   }
-	}
-	
-	$('.username_input').change(function () {
-	  	$('#id_check_sucess').hide();
-	  	$('.id_overlap_button').show();
-	  	$('.username_input').attr("check_result", "fail");
-	})
-	
-	
+      
+      //성별검사
+     <!-- var genderVal = false;
+      for (var i = 0; i < gender.length; i++) {
+         //성별을 검사하면서 한개라도 체크가되어있다면
+         if (gender[i].checked) {
+            //true를 셋팅
+            genderVal = true;
+         }
+      } -->
+      // 전체 검사
+      // 아이디가 공백이거나 6글자 이상이면
+      if (id.value == '' || id.value.length < 6 ) {
+         alert('아이디를 6자이상 입력해주세요!');
+         //id포커스
+         id.focus();
+         return false;
+      // 비밀번호가 6자리 미만이거나 숫자가 아닐때
+      } else if (pw1.value.length < 6 || pw1.value=='') {
+         alert('비밀번호를 6자 이상 입력해주세요!');
+         //비밀번호 포커스
+         pw1.focus();
+         return false;
+      // 비밀번호가 처음입력한 값과 다를시
+      } else if (pw1.value != pw2.value) {
+         alert('패스워드가 일치하지 않습니다.');
+         pw2.focus();
+         return false;
+      // 성별이 체크가 안되었을시
+     <!-- } else if (genderVal == false) {
+         alert("성별을 입력하세요!");
+         gender[0].focus();
+         return false; -->
+         // 전부완료되면 메인 페이지 이동
+      } else {
+         
+         return true;
+         
+      }
+   }
+   
+   $('.username_input').change(function () {
+        $('#id_check_sucess').hide();
+        $('.id_overlap_button').show();
+        $('.username_input').attr("check_result", "fail");
+   })
+   
+   
 
 
 
@@ -113,14 +113,13 @@ function chkForm2() {
    
    
    
-	
-	
-	     	 
-	
-	</script>
+   
+   
+            
+   
+   </script>
 </head>
 <body>
-<<<<<<< HEAD
  <div id="wrap" class="">
         <div id="pos_scroll"></div>
         <div id="container">
@@ -382,20 +381,8 @@ function chkForm2() {
         <button type="button" class="btn btn_up off"></button>
         <button type="button" class="btn btn_down off"></button>
         </div>
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
 
-  <h2>판매자 회원가입</h2>
-  <div>
-    <div>
-      <form action="<%=cpath%>/userInsert.do" method="post">
-        <div>
-          <label for="title">아이디:</label>
-          <div>
-            <input type="text" name="user_id"  placeholder="Enter id">
-          </div>
         </div>
-<<<<<<< HEAD
         <div class="page_aticle">
         
        
@@ -482,36 +469,36 @@ function chkForm2() {
         
 
         function Test1() {
-        	
-        	
-        	
+           
+           
+           
             if ($('.username_input').val() == '') {
-             	 alert('아이디를 입력해주세요.')
-              		return;
+                 alert('아이디를 입력해주세요.')
+                    return;
             }
             
-        	
+           
 
             id_overlap_input = document.querySelector('input[name="seller_id"]');
 
             $.ajax({
-              	url: "selleridcheck.do",
-              	data: {
-                	'seller_id': id_overlap_input.value
+                 url: "selleridcheck.do",
+                 data: {
+                   'seller_id': id_overlap_input.value
               },
-              	datatype: 'text',
-              	success: function (response) {
-              		//if(response=='ok')
+                 datatype: 'text',
+                 success: function (response) {
+                    //if(response=='ok')
                 console.log(response);
                 if (response == "no") {
-                  	alert("이미 존재하는 아이디 입니다.");
-                  	id_overlap_input.focus();
-                  	return;
+                     alert("이미 존재하는 아이디 입니다.");
+                     id_overlap_input.focus();
+                     return;
               } else {
-                  	alert("사용가능한 아이디 입니다.");
-                 	 $('.username_input').attr("check_result", "success");
-                  	$('#id_check_sucess').show();
-                  	$('.id_overlap_button').hide();
+                     alert("사용가능한 아이디 입니다.");
+                     $('.username_input').attr("check_result", "success");
+                     $('#id_check_sucess').show();
+                     $('.id_overlap_button').hide();
                   return;
                   }
                 
@@ -524,15 +511,7 @@ function chkForm2() {
         </td>
   
    
-=======
-        <div>
-          <label for="contents">비밀번호:</label>
-          <div>
-            <input type="password" name="user_pwd"  placeholder="Enter password">
-          </div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
         </div>
-<<<<<<< HEAD
         <p class="txt_guide">
         <span class="txt bad"></span>
         </p>
@@ -545,21 +524,9 @@ function chkForm2() {
         </tbody></table>
         <div id="formSubmit" class="form_footer">
         <button type="submit" class="btn active btn_join">가입하기</button>
-=======
-        <div>
-          <label for="writer">핸드폰번호:</label>
-          <div>
-            <input type="text" name="user_phone" placeholder="(-)없이 11자만 작성해주세요">
-          </div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
         </div>
-        <div>
-          <div>
-            <button type="submit" class="btn btn-primary btn-sm">회원가입</button>
-            <button type="reset" class="btn btn-warning btn-sm">취소</button>
-          </div>
+        </form>
         </div>
-<<<<<<< HEAD
         <iframe id="ifrmRnCheck" name="ifrmRnCheck" style="display:none;"></iframe>
         <iframe id="ifrmHpauth" name="ifrmHpauth" style="display:none;"></iframe>
         </div>
@@ -599,199 +566,188 @@ function chkForm2() {
         
 <!-- Code injected by live-server -->
 <script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
+   // <![CDATA[  <-- For SVG support
+   if ('WebSocket' in window) {
+      (function () {
+         function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+               var elem = sheets[i];
+               var parent = elem.parentElement || head;
+               parent.removeChild(elem);
+               var rel = elem.rel;
+               if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                  var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                  elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+               }
+               parent.appendChild(elem);
+            }
+         }
+         var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+         var address = protocol + window.location.host + window.location.pathname + '/ws';
+         var socket = new WebSocket(address);
+         socket.onmessage = function (msg) {
+            if (msg.data == 'reload') window.location.reload();
+            else if (msg.data == 'refreshcss') refreshCSS();
+         };
+         if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.');
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+         }
+      })();
+   }
+   else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+   }
+   // ]]>
 </script>
 <!-- Code injected by live-server -->
 <script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
+   // <![CDATA[  <-- For SVG support
+   if ('WebSocket' in window) {
+      (function () {
+         function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+               var elem = sheets[i];
+               var parent = elem.parentElement || head;
+               parent.removeChild(elem);
+               var rel = elem.rel;
+               if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                  var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                  elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+               }
+               parent.appendChild(elem);
+            }
+         }
+         var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+         var address = protocol + window.location.host + window.location.pathname + '/ws';
+         var socket = new WebSocket(address);
+         socket.onmessage = function (msg) {
+            if (msg.data == 'reload') window.location.reload();
+            else if (msg.data == 'refreshcss') refreshCSS();
+         };
+         if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.');
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+         }
+      })();
+   }
+   else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+   }
+   // ]]>
 </script><!-- Code injected by live-server -->
 <script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
+   // <![CDATA[  <-- For SVG support
+   if ('WebSocket' in window) {
+      (function () {
+         function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+               var elem = sheets[i];
+               var parent = elem.parentElement || head;
+               parent.removeChild(elem);
+               var rel = elem.rel;
+               if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                  var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                  elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+               }
+               parent.appendChild(elem);
+            }
+         }
+         var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+         var address = protocol + window.location.host + window.location.pathname + '/ws';
+         var socket = new WebSocket(address);
+         socket.onmessage = function (msg) {
+            if (msg.data == 'reload') window.location.reload();
+            else if (msg.data == 'refreshcss') refreshCSS();
+         };
+         if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.');
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+         }
+      })();
+   }
+   else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+   }
+   // ]]>
 </script><!-- Code injected by live-server -->
 <script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
+   // <![CDATA[  <-- For SVG support
+   if ('WebSocket' in window) {
+      (function () {
+         function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+               var elem = sheets[i];
+               var parent = elem.parentElement || head;
+               parent.removeChild(elem);
+               var rel = elem.rel;
+               if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                  var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                  elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+               }
+               parent.appendChild(elem);
+            }
+         }
+         var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+         var address = protocol + window.location.host + window.location.pathname + '/ws';
+         var socket = new WebSocket(address);
+         socket.onmessage = function (msg) {
+            if (msg.data == 'reload') window.location.reload();
+            else if (msg.data == 'refreshcss') refreshCSS();
+         };
+         if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.');
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+         }
+      })();
+   }
+   else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+   }
+   // ]]>
 </script><!-- Code injected by live-server -->
 <script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
+   // <![CDATA[  <-- For SVG support
+   if ('WebSocket' in window) {
+      (function () {
+         function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+               var elem = sheets[i];
+               var parent = elem.parentElement || head;
+               parent.removeChild(elem);
+               var rel = elem.rel;
+               if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                  var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                  elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+               }
+               parent.appendChild(elem);
+            }
+         }
+         var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+         var address = protocol + window.location.host + window.location.pathname + '/ws';
+         var socket = new WebSocket(address);
+         socket.onmessage = function (msg) {
+            if (msg.data == 'reload') window.location.reload();
+            else if (msg.data == 'refreshcss') refreshCSS();
+         };
+         if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.');
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+         }
+      })();
+   }
+   else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+   }
+   // ]]>
 </script></body></html>
-=======
-      </form>
-    </div>
-</div>
-
-
-
-
-</body> 
-</html>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git

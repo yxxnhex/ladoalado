@@ -70,4 +70,13 @@
 		select * from sellers where seller_id=#{seller_id}
 	</select>
 
+	<insert id="itemInsert" parameterType="kr.smhrd.model.itemVO">
+		insert into items(item_name, item_company, item_price, item_serve, item_time, item_gram, item_imgurl, seller_num) 
+		values(#{item_name}, #{item_company}, #{item_price}, #{item_serve}, #{item_time}, #{item_gram}, #{item_imgurl}, #{seller_num})
+	</insert>
+	
+	<insert id="ingredientInsert" parameterType="kr.smhrd.model.ingredientVO">
+		insert into ingredients(item_kcal, item_nate, item_carbo, item_sugar, item_fat, item_trans, item_sat, item_col, item_protein) 
+		values(#{item_kcal}, #{item_nate}, #{item_carbo}, #{item_sugar}, #{item_fat}, #{item_trans}, #{item_sat}, #{item_col}, #{item_protein})
+	</insert>
 </mapper>
