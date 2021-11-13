@@ -11,6 +11,10 @@
 		select * from items where item_num=#{item_num}
 	</select>
 	
+	<select id="manageItem" parameterType="int" resultType="kr.smhrd.model.itemVO" >
+		select * from items where seller_num=#{seller_num}
+	</select>
+	
 	<select id="itemContent_ingre" parameterType="int" resultType="kr.smhrd.model.ingredientVO" >
 		select * from ingredients where item_num=#{item_num}
 	</select>
@@ -79,4 +83,28 @@
 		insert into ingredients(item_kcal, item_nate, item_carbo, item_sugar, item_fat, item_trans, item_sat, item_col, item_protein) 
 		values(#{item_kcal}, #{item_nate}, #{item_carbo}, #{item_sugar}, #{item_fat}, #{item_trans}, #{item_sat}, #{item_col}, #{item_protein})
 	</insert>
+	
+	<select id="itemSort_protein" resultType="kr.smhrd.model.itemSortVO">
+		select items.*, ingredients.*
+		from items, ingredients where items.item_num = ingredients.item_num
+		order by item_protein desc
+	</select>
+	
+	<select id="itemSort_kcal" resultType="kr.smhrd.model.itemSortVO">
+		select items.*, ingredients.*
+		from items, ingredients where items.item_num = ingredients.item_num
+		order by item_kcal desc
+	</select>
+	
+	<select id="itemSort_nate" resultType="kr.smhrd.model.itemSortVO">
+		select items.*, ingredients.*
+		from items, ingredients where items.item_num = ingredients.item_num
+		order by item_nate desc
+	</select>
+	
+	<select id="itemSort_price" resultType="kr.smhrd.model.itemSortVO">
+		select items.*, ingredients.*
+		from items, ingredients where items.item_num = ingredients.item_num
+		order by item_price desc
+	</select>
 </mapper>

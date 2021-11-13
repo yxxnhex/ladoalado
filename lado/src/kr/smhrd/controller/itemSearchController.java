@@ -17,6 +17,7 @@ public class itemSearchController implements Controller{
 			throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		
 		System.out.println("컨트롤러 실행");
 		mainDAO dao=new mainDAO();
 		String item_search=request.getParameter("item_search");

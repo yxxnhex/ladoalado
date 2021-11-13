@@ -40,6 +40,13 @@ public class mainDAO {
 			return itemSearch_list;
 		}
 		
+		public List<itemVO> manageItem(int seller_num) {
+			SqlSession session=sqlSessionFactory.openSession();
+			List<itemVO> list= session.selectList("manageItem", seller_num);
+			session.close();  
+			return list;
+		}
+		
 		public itemVO itemContent_item(int item_num) {
 			SqlSession session=sqlSessionFactory.openSession();
 			itemVO vo= session.selectOne("itemContent_item", item_num);
@@ -142,5 +149,25 @@ public class mainDAO {
 			session.insert("ingredientInsert", vo);
 			session.commit(); //완료(저장)
 			session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
+		}
+		
+		public  List<itemSortVO> itemSort(String itemSort){
+			SqlSession session=sqlSessionFactory.openSession();
+			System.out.println(itemSort);
+			
+			List<itemSortVO> itemSort_list;
+			if(itemSort.equals("item_protein")) {
+				itemSort_list=session.selectList("itemSort_protein", itemSort);
+			}else if(itemSort.equals("item_kcal")) {
+				itemSort_list=session.selectList("itemSort_kcal", itemSort);
+			}else if(itemSort.equals("item_price")) {
+				itemSort_list=session.selectList("itemSort_price", itemSort);
+			}else {
+				itemSort_list=session.selectList("itemSort_nate", itemSort);
+			}
+			
+			
+			session.close();
+			return itemSort_list;
 		}
 }

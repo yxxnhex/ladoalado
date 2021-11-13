@@ -27,14 +27,31 @@
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
+
+@font-face {
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ELAND_Nice_M';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Nice_M.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html,
 body {
   height: 100%;
-  -webkit-font-smoothing: antialiased;
-      font-family: 'KOTRAHOPE';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  -webkit-font-smoothing: antialiased; 
+}
+
+.header{
+	font-family: 'InfinitySans-RegularA1';
+}
+    
 }
 
 h1,
@@ -46,43 +63,42 @@ h6 {
   margin: 0;
   color: #11111194;
   font-weight: 400;
-  font-family: 'KOTRAHOPE';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+  
 }
 
 h1 {
   font-size: 70px;
+  font-family: 'InfinitySans-RegularA1';
 }
 
 h2 {
   font-size: 36px;
+  font-family: 'InfinitySans-RegularA1';
 }
 
 h3 {
   font-size: 30px;
+  font-family: 'InfinitySans-RegularA1';
 }
 
 h4 {
   font-size: 24px;
+  font-family: 'InfinitySans-RegularA1';
 }
 
 h5 {
   font-size: 18px;
+  font-family: 'InfinitySans-RegularA1';
 }
 
 h6 {
   font-size: 16px;
+  font-family: 'InfinitySans-RegularA1';
 }
 
 p {
   font-size: 16px;
-  font-family: 'KOTRAHOPE';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  color: #111111;
+  font-family: 'InfinitySans-RegularA1';
   font-weight: 400;
   line-height: 28px;
   margin: 0 0 15px 0;
@@ -121,6 +137,7 @@ ol {
 .section-title span {
   color: #f08632;
   font-size: 20px;
+  font-family: 'InfinitySans-RegularA1';
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 4px;
@@ -129,14 +146,11 @@ ol {
 }
 .section-title h2 {
   font-size: 46px;
+  font-family: 'InfinitySans-RegularA1';
   color: #111111;
   line-height: 60px;
   font-weight: 700;
-  
-  font-family: 'KOTRAHOPE';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+    
 }
 
 .set-bg {
@@ -167,6 +181,7 @@ ol {
 .primary-btn {
   display: inline-block;
   font-size: 14px;
+  font-family: 'InfinitySans-RegularA1';
   font-weight: 600;
   text-transform: uppercase;
   padding: 14px 30px;
@@ -177,6 +192,7 @@ ol {
 
 .site-btn {
   font-size: 14px;
+  font-family: 'InfinitySans-RegularA1';
   color: #ffffff;
   background: #111111;
   font-weight: 600;
@@ -284,6 +300,7 @@ ol {
 .search-model-form input {
   width: 500px;
   font-size: 40px;
+  font-family: 'InfinitySans-RegularA1';
   border: none;
   border-bottom: 2px solid #333;
   background: 0 0;
@@ -299,6 +316,7 @@ ol {
   text-align: center;
   border-radius: 50%;
   font-size: 28px;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 28px;
   top: 30px;
   cursor: pointer;
@@ -335,9 +353,11 @@ ol {
 
 .header__top__left {
   float: left;
+  
 }
 .header__top__left ul li {
-  font-size: 14px;
+	font-family: 'InfinitySans-RegularA1';
+  font-size: 17px !important;
   color: #111111;
   list-style: none;
   display: inline-block;
@@ -345,6 +365,11 @@ ol {
   position: relative;
   padding: 2px 0;
   cursor: pointer;
+}
+
+.header__top__right ul li {
+	font-size: 17px !important;
+	font-family: 'InfinitySans-RegularA1';
 }
 .header__top__left ul li a {
   color: #111111;
@@ -371,6 +396,7 @@ ol {
 .header__top__left ul li ul li {
   list-style: none;
   font-size: 13px;
+  font-family: 'InfinitySans-RegularA1';
   color: #ffffff;
   padding: 2px 15px;
   cursor: pointer;
@@ -426,6 +452,7 @@ ol {
   top: 0px;
   content: "|";
   font-size: 16px;
+  font-family: 'InfinitySans-RegularA1';
   color: #bababa;
 }
 .header__top__right__links a:last-child {
@@ -445,6 +472,7 @@ ol {
 }
 .header__top__right__cart a span {
   font-size: 15px;
+  font-family: 'InfinitySans-RegularA1';
   color: #111111;
   font-weight: 600;
   position: absolute;
@@ -455,6 +483,7 @@ ol {
   display: inline-block;
   color: #888888;
   font-size: 15px;
+  font-family: 'InfinitySans-RegularA1';
   font-weight: 600;
   position: relative;
   top: 4px;
@@ -475,9 +504,7 @@ ol {
 .header__menu ul li.active a {
   background: #111111;
 }
-.header__menu ul li:hover a {
-  background: #111111;
-}
+
 .header__menu ul li:hover .dropdown {
   top: 62px;
   opacity: 1;
@@ -507,6 +534,7 @@ ol {
 }
 .header__menu ul li .dropdown li a {
   font-size: 14px;
+  font-family: 'InfinitySans-RegularA1';
   color: #ffffff;
   font-weight: 400;
   padding: 5px 20px;
@@ -517,6 +545,7 @@ ol {
 }
 .header__menu ul li a {
   font-size: 16px;
+  font-family: 'InfinitySans-RegularA1';
   color: #ffffff;
   display: block;
   font-weight: 600;
@@ -539,20 +568,37 @@ ol {
   Hero
 -----------------------*/
 
-.index_video{
-  padding: 0px;  
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  /*object-fit: cover;*/
-  }
 
+.index_video{
+ position: relative; 
+    padding-bottom: 43.25%;
+    height:0; 
+    overflow:hidden; 
+}
+
+
+.index_video iframe,
+.index_video object,
+.index_video embed { 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height:100%; 
+}
+
+
+.video_area{
+  width: 100% !important;
+}
 
 .hero__item {
   height: 700px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-family: 'ELAND_Nice_M';
+	
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -564,9 +610,11 @@ ol {
   position: absolute;
   overflow: hidden;
   width: auto;
+  font-size: 150px;
   height: auto;
-  margin: 25% 25%;
+  margin: 15% 30%;
   color: white;
+  
   
 }
 
@@ -586,6 +634,7 @@ ol {
 }
 .categories__slider.owl-carousel .owl-nav button {
   font-size: 36px;
+  font-family: 'InfinitySans-RegularA1';
   color: #888888;
   position: absolute;
   left: -60px;
@@ -648,6 +697,7 @@ ol {
 .categories__item__icon h5 {
   color: #111111;
   font-weight: 600;
+  font-family: 'InfinitySans-RegularA1';
   text-transform: uppercase;
   margin-top: 4px;
   -webkit-transition: all, 0.2s;
@@ -672,6 +722,7 @@ ol {
   width: 100%;
   padding-left: 20px;
   font-size: 15px;
+  font-family: 'InfinitySans-RegularA1';
   color: #444444;
   background: #ffffff;
   border: none;
@@ -703,6 +754,7 @@ ol {
 }
 .class__form form .nice-select span {
   font-size: 15px;
+  font-family: 'InfinitySans-RegularA1';
   color: #444444;
 }
 .class__form form .nice-select .list {
@@ -744,6 +796,7 @@ ol {
   height: 70px;
   background: #f08632;
   font-size: 24px;
+  font-family: 'InfinitySans-RegularA1';
   color: #ffffff;
   line-height: 70px;
   text-align: center;
@@ -801,6 +854,7 @@ ol {
 .team__item__text span {
   color: #111111;
   font-size: 14px;
+  font-family: 'InfinitySans-RegularA1';
   display: block;
   margin-bottom: 12px;
 }
@@ -809,6 +863,7 @@ ol {
   display: inline-block;
   color: #111111;
   font-size: 16px;
+  font-family: 'InfinitySans-RegularA1';
   margin-right: 14px;
 }
 
@@ -854,6 +909,7 @@ ol {
 }
 .testimonial__item .rating span {
   font-size: 14px;
+  font-family: 'InfinitySans-RegularA1';
   color: #f0c656;
   margin-right: -5px;
   display: inline-block;
@@ -999,7 +1055,6 @@ ol {
   Product
 -----------------------*/
 
-
 .product {
   margin-top: 1450px;
   padding-top: 50px;
@@ -1007,7 +1062,13 @@ ol {
 
 .product__item {
   margin-bottom: 40px;
+  list-style: none;
 }
+
+.product__item ul, li{
+  list-style: none;
+}
+
 .product__item:hover .product__item__pic .product__label span {
   background: #f08632;
   color: #ffffff;
@@ -1049,7 +1110,7 @@ ol {
 }
 
 .product__item__text {
-  padding-top: 40px;
+  padding-top: 5px;
   text-align: center;
   position: relative;
 }
@@ -1093,7 +1154,7 @@ ol {
   Footer
 -----------------------*/
 .footer {
-  padding-top: 70px;
+  padding-top: -70px;
   background-color: #FFBF00;
 }
 
@@ -1274,9 +1335,9 @@ ol {
 .breadcrumb__text h2 {
   font-size: 50px;
   color: #000000;
-  font-weight: 700;
+  font-weight: 400;
   
-  font-family: "Playfair Display", serif;
+  
 }
 
 .breadcrumb__links {
@@ -1365,6 +1426,33 @@ ol {
   text-align: center;
   border-radius: 50%;
 }
+
+.about__videos {
+    position: relative; 
+    padding-bottom: 31.25%;
+    padding-left:20%;
+    height:0; 
+    overflow:hidden; 
+} 
+   
+
+
+
+.about__videos iframe,
+.about__videos object,
+.about__videos embed { 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height:100%; 
+    
+   
+}
+
+
+
+
 
 /*---------------------
   Shop
@@ -1535,7 +1623,7 @@ ol {
   Product Details
 -----------------------*/
 .product-details {
-  padding-top: 90px;
+  padding-top: 50px;
   padding-bottom: 0;
 }
 
@@ -1613,9 +1701,10 @@ ol {
 }
 .product__details__option .pro-qty {
   height: 50px;
-  width: 160px;
+  width: 140px;
   border: 1px solid #e1e1e1;
   padding: 0 20px;
+  
 }
 .product__details__option .pro-qty .qtybtn {
   font-size: 16px;
@@ -1634,7 +1723,7 @@ ol {
 .product__details__option .pro-qty input {
   border: none;
   height: 100%;
-  width: 82px;
+  
   font-size: 16px;
   font-weight: 600;
   color: #111111;
@@ -1743,6 +1832,8 @@ ol {
   font-weight: 600;
   text-transform: uppercase;
   padding-bottom: 25px;
+  text-align: left;
+  
 }
 .shopping__cart__table table tbody tr {
   border-bottom: 1px solid #f2f2f2;
@@ -1750,6 +1841,7 @@ ol {
 .shopping__cart__table table tbody tr td {
   padding-bottom: 30px;
   padding-top: 30px;
+    
 }
 .shopping__cart__table table tbody tr td.product__cart__item {
   width: 400px;
@@ -1886,21 +1978,23 @@ ol {
 }
 
 .cart__total {
+	margin-left: 10px;
   background: #fdf3ea;
-  padding: 35px 40px 40px;
+  padding: 35px 30px 30px;
 }
 .cart__total h6 {
   color: #111111;
   text-transform: uppercase;
   margin-bottom: 12px;
   font-weight: 600;
+  font-size: 24px;
 }
 .cart__total ul {
   margin-bottom: 25px;
 }
 .cart__total ul li {
   list-style: none;
-  font-size: 16px;
+  font-size: 20px;
   color: #444444;
   font-weight: 500;
   line-height: 40px;
@@ -2082,14 +2176,7 @@ ol {
 .checkout__total__products li:last-child {
   margin-bottom: 0;
 }
-.checkout__total__products li samp {
-  font-family: 'KOTRAHOPE';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 600;
-}
+
 .checkout__total__products li span {
   color: #111111;
   float: right;
@@ -2386,7 +2473,7 @@ ol {
   padding-top: 42px;
 }
 .blog__item__text h2 {
-  font-family: 'KOTRAHOPE';
+  font-family: 'InfinitySans-RegularA1';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
@@ -2492,7 +2579,6 @@ ol {
   transition: all, 0.3s;
 }
 .blog__sidebar__item .blog__sidebar__social a:hover {
-  background: #111111;
   color: #ffffff;
 }
 .blog__sidebar__item .blog__sidebar__social a:last-child {
@@ -2610,7 +2696,7 @@ ol {
   font-size: 20px;
   color: #111111;
   line-height: 26px;
-  font-family: 'KOTRAHOPE';
+  font-family: 'InfinitySans-RegularA1';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
@@ -2652,7 +2738,7 @@ ol {
 }
 .blog__hero__text h2 {
   font-size: 46px;
-  font-family: "Playfair Display", serif;
+  font-family: 'InfinitySans-RegularA1';
   font-weight: 700;
   
   color: #111111;
@@ -3073,7 +3159,7 @@ ol {
   color: #111111;
   font-weight: 700;
   
-  font-family: "Playfair Display", serif;
+  font-family: 'InfinitySans-RegularA1';
   margin-bottom: 20px;
 }
 .contact__text ul {
@@ -3688,6 +3774,7 @@ ol {
 
   .shopping__cart__table {
     overflow-x: auto;
+    width: 1200px;
   }
 
   .related__products__slider.owl-carousel .owl-nav button.owl-next {
@@ -3704,7 +3791,7 @@ ol {
   }
 
   .shopping__cart__table table tbody tr td.quantity__item {
-    width: auto;
+    width: 100px;
   }
 
   .shopping__cart__table table tbody tr td.cart__price {
@@ -4001,6 +4088,7 @@ ol {
 
   .breadcrumb__text h2 {
     font-size: 40px;
+    
   }
 
   .checkout__total__products li span {
@@ -4012,13 +4100,12 @@ ol {
   .checkout__order__products span {
     display: none;
   }
-<<<<<<< HEAD
 }
 
 
-/* �쉶�썝媛��엯 */
+/* 회원가입 */
 .page_aticle button, .page_aticle input, .page_aticle select, .page_aticle * {
-  font-family: noto sans;
+  font-family: 'InfinitySans-RegularA1';
   font-weight: 400;
   letter-spacing: 0;
 }
@@ -4315,14 +4402,14 @@ div, th, td, li, dt, dd, p {
 html, body {
   height: 100%;
   -webkit-font-smoothing: antialiased;
-  font-family: 'KOTRAHOPE';
+  font-family: 'InfinitySans-RegularA1';
   src: url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2) format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 body {
   margin: 0;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: 'InfinitySans-RegularA1';
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -4331,7 +4418,7 @@ body {
   background-color: #fff;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4340,7 +4427,7 @@ body, input, select, textarea, button {
 }
 body {
   margin: 0;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: 'InfinitySans-RegularA1';
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -4350,11 +4437,11 @@ body {
 }
 html, body {
   height: 100%;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -webkit-font-smoothing: antialiased;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4362,7 +4449,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4370,7 +4457,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4378,7 +4465,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4386,7 +4473,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4394,7 +4481,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4402,7 +4489,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4410,7 +4497,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4418,7 +4505,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4426,7 +4513,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4434,7 +4521,7 @@ body, input, select, textarea, button {
   max-width: 100%;
 }
 body, input, select, textarea, button {
-  font-family: noto sans,malgun gothic,AppleGothic,dotum;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1;
   letter-spacing: -.05em;
   color: #4c4c4c;
@@ -4468,67 +4555,67 @@ body, input, select, textarea, button {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  --font-family: 'InfinitySans-RegularA1';
+  --font-family: 'InfinitySans-RegularA1';
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'InfinitySans-RegularA1';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -4991,18 +5078,205 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 }
 
+.breadcrumb__text2 h2{
+	width: 900px;
+	
+	font-size: 50px;
+  	color: #000000;
+  	font-weight: 400;
+} 
 
-.breadcrumb__text1{
+
+.breadcrumb__text1 h2{
+	width: 900px;
+	margin-left: 47%;
+	font-size: 50px;
+  	color: #000000;
+  	font-weight: 400;
+} 
+
+.breadcrumb__text h2{
   margin-left: 47%;
 }
 
-li{
-	list-style-type:none;
-	float : left;
-};
-
-=======
+.section_title{
+	margin-top: 10px;
 }
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/lado.git
+
+#test1{
+	width: 900px !important;
+	height: 400px !important;
+	display: block !important;
+}
+
+
+.product_spec img{
+	width: 200px;
+	height: 200px;
+	padding: 40px;
+}
+
+.suggest_section td, tr{
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px;
+}
+
+table {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+.btn_a{
+	margin-top: 10px;
+	padding: 15px 30px 15px 30px;
+	background-color: #FFBF00;
+	border: 0;
+	font-size: 18px;
+	outline: 0;
+	width: 200px;
+}
+
+#menu_label {
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #000;
+  font-family: 'Lato', sans-serif;
+  font-size: 2.0rem;
+  letter-spacing: 0.08rem;
+  padding: 0.1rem;
+  cursor: pointer;
+  border-radius: .4rem;
+  border: 0.0rem solid rgb(245, 245, 245);
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 3px 0 0 rgb(255, 230, 0);
+  border: 0;
+  
+}
+label::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+  mix-blend-mode: difference;
+  background: radial-gradient(circle at center, #fff 24%,rgba(255, 255, 255, 0.911) 25%, rgb(243, 239, 239) 100%);
+}
+label:active {
+  top: 3px;
+  box-shadow: none;
+}
+
+#cb1{
+	font-size: 12px;
+	outline: 0;
+	background-color: white;
+	padding: 5px;
+	border: 0;
+	font-size: 18px;
+	outline: 0;
+	
+}
+
+#seller_pd{
+   background-color:#FFBF00;
+   color: #FFFFFF;
+   font-family: 'InfinitySans-RegularA1';
+   font-size:16px;
+   padding: 20px 28px 18px;
+   outline: 0;
+   border:0;
+   width: 180px;
+   height: 40px;
+   font-weight: 600;
+   
+   
+   
+}
+
+.icon_close{
+	width: 3px;
+	height: 3px;
+}
+
+.id_overlap_button {
+    margin-left: 15px;
+    padding: 5px;
+    background-color: #FFCA18 !important;
+    color: white;
+    border: 0;
+    font-size: 14px;
+    outline: 0;
+    width: 100px;
+    height: 43px;
+}
+
+.img_set{
+	margin-top: 50px;
+}
+
+.product__item__price{
+	text-align: center;
+}
+
+#shop_cart_fuck{
+	width:1200px;
+}
+.luv_suri{
+	display:flex;
+	margin-left:25%;
+	margin-top:50px;
+	font-size: 25px;
+	text-align: center;
+	
+}
+.primary-btn__{
+	width:300px !important;
+	border: 2px solid #b7b7b7;
+  	background: #111111;
+	color: white;
+	height:70px !important;
+	padding-top: 15px;
+}
+
+.commons{
+   line-height: 3;
+   font-size: 14px;
+}
+
+.option_right1{
+	height: 46px;
+	width: 200px;
+	border: 1px solid #e1e1e1;
+	font-size: 16px;
+	
+}
+
+.img_button button{
+	background-color: #FCDB61;
+	border: 0;
+	font-size: 14px;
+	outline: 0;
+	color: black;
+	padding: 5px;
+}
+
+
+.ab_1 td{
+	padding: 0 !important;
+}
+

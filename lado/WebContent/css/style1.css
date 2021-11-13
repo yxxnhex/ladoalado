@@ -1,4 +1,4 @@
-/* Please ❤ this if you like it! */
+/* Please �씍 this if you like it! */
 
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
@@ -62,7 +62,7 @@ h6 span{
   padding: 0;
   margin: 10px auto;
   cursor: pointer;
-  background-color: #ffca18;
+  background-color: #fdf3ea;
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
@@ -285,7 +285,7 @@ h6 span{
 
 .logo{
   width: 1000px;
-  height: 1000px;
+  height: 800px;
   position: absolute;
   margin-top: 30px;
   display: block;

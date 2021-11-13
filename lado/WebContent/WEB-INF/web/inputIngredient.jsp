@@ -1,39 +1,248 @@
 <%@page import="kr.smhrd.model.sellerVO"%>
 <%@page import="kr.smhrd.model.UserVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-    
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%
-    String cpath=request.getContextPath(); // /m02  
-    UserVO user=(UserVO)session.getAttribute("succ");
-    sellerVO seller=(sellerVO)session.getAttribute("succ2");
-    
-    
-%>
+     String cpath=request.getContextPath(); // /m02
+     UserVO user=(UserVO)session.getAttribute("succ");
+     sellerVO seller=(sellerVO)session.getAttribute("succ2");
 
+%>    
 
+    <script type="text/javascript">
+  	function outFn(){
+  		location.href="<%=cpath%>/logout.do"
+  	}
+  	
+  	src="<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"
+  </script>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
+
+  
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/member1.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css" type="text/css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/flaticon.css" type="text/css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/barfiller.css" type="text/css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/magnific-popup.css" type="text/css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-awesome.min.css" type="text/css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/elegant-icons.css" type="text/css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/nice-select.css" type="text/css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/owl.carousel.min.css" type="text/css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slicknav.min.css" type="text/css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
+      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style1.css" type="text/css">
+     <script src= "<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"></script>
+     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
 
-	<form action="<%=cpath%>/ingredientUpload.do" method="post">
-		칼로리 : <input type="number" name="item_kcal"><br>
-		나트륨 : <input type="number" name="item_nate"><br>
-		칼슘 : <input type="number" name="item_carbo"><br>
-		당류 : <input type="number" name="item_sugar"><br>
-		지방류 : <input type="number" name="item_fat"><br>
-		트랜스지방 : <input type="number" name="item_trans"><br>
-		포화지방 : <input type="number" name="item_sat"><br>
-		콜레스테롤 : <input type="number" name="item_col"><br>
-		단백질 : <input type="number" name="item_protein"><br>
-		<input type="submit" value="상품등록">
-	</form>
-		
+<!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>                                                                  
+                                    <li><a href="<%=cpath%>/signUp.do">Join</a></li>
+                                    <li><a href="<%=cpath%>/SellersignUp.do">Join-Seller</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">                                                              
+                            	<a href="<%=cpath%>/mainPage.do"><img src="img/logo.png" alt=""></a>                               
+                            </div>
+                            <div class="header__top__right">
+                                <ul>                                                                
+                                    <li>
+										<% if(user==null&seller==null){ %>
+                                    	<p>Please Login</p>
+										<% } else{ %>
+			                            <% if(user!=null){ %>
+			                            <%= user.getUser_name() %>님 방문을 환영합니다.
+			                            <a class="loginout" onclick="outFn()">Logout</a>
+			                            <% }else if(seller!=null){ %>
+			                            <%= seller.getSeller_id() %>님 방문을 환영합니다.
+			                            <a class="loginout" onclick="outFn()">Logout</a>
+			                            <% }
+			                            }%>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="<%=cpath%>/mainPage.do">홈</a></li>
+                            <li><a href="<%=cpath%>/aboutUs.do">라도이야기</a></li>
+                            <li><a href="<%=cpath%>/itemList.do">메뉴</a></li>
+                                    
+								<%if(user == null && seller==null){ %> 
+								<li><a href="<%=cpath%>/loginPage.do" class="loginout">로그인</a></li> 
+								<%}else if(user != null){ %>
+								<li>
+								<form action="<%=cpath%>/cartView.do" method="post">
+									<input type="hidden" name="user_num" value="<%=user.getUser_num()%>"> 
+									<input type="submit" id="seller_pd" value="장바구니" />
+								</form> 
+								</li>
+								<% }else if(seller != null){ %>
+								<li>
+								<form action="<%=cpath%>/input.do" method="post">
+									<input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+									<input type="submit" id="seller_pd" value="상품등록" />
+								</form> 
+								</li>
+								<li>
+								<form action="<%=cpath%>/manageItem.do" method="post">
+									<input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+									<input type="submit" id="seller_pd" value="상품관리" />
+								</form> 
+								</li>
+							    <% } %>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- Header Section End -->
+    
+   <!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="breadcrumb__text">
+                    <h2>판매상품 영양소 등록</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+   
+<div id="qnb" class="quick-navigation" style="top: 70px;">
+	<div class="type_form member_join ">
+		<form id="form" method="post" action="<%=cpath%>/ingredientUpload.do">
+		 	<p class="page_sub"><span class="ico">*</span>필수입력사항</p>
+			
+        	<table class="tbl_comm">
+        		<tbody>
+        			<tr class="fst">
+           				<th>칼로리<span>*<span class="screen_out">필수항목</span></span></th>
+        				<td>
+         					<input class="commons" type="number" name="item_kcal" placeholder="　칼로리를 입력해주세요">
+         				</td>
+        			</tr>
+        			
+        			<tr class="fst">
+           				<th>나트륨<span>*<span class="screen_out">필수항목</span></span></th>
+        				<td>
+         					<input class="commons" type="number" name="item_nate" placeholder="　나트륨을 입력해주세요">
+         				</td>
+        			</tr>
+        			
+        			<tr class="fst">
+           				<th>칼슘<span>*<span class="screen_out">필수항목</span></span></th>
+        				<td>
+         					<input class="commons" type="number" name="item_carbo" placeholder="　칼슘을 입력해주세요">
+         				</td>
+        			</tr>
+        			
+        			<tr class="fst">
+           				<th>당류<span>*<span class="screen_out">필수항목</span></span></th>
+        				<td>
+         					<input class="commons" type="number" name="item_sugar" placeholder="　당류를 입력해주세요">
+         				</td>
+        			</tr>
+        			
+        			<tr class="fst">
+           				<th>지방류<span>*<span class="screen_out">필수항목</span></span></th>
+        				<td>
+         					<input class="commons" type="number" name="item_fat" placeholder="　지방류를 입력해주세요">
+         				</td>
+        			</tr>
+        			
+        			<tr class="fst">
+           				<th>포화지방<span>*<span class="screen_out">필수항목</span></span></th>
+        				<td>
+         					<input class="commons" type="number" name="item_sat" placeholder="　포화지방을 입력해주세요">
+         				</td>
+        			</tr>
+        			
+					<tr class="fst">
+           				<th>콜레스테롤<span>*<span class="screen_out">필수항목</span></span></th>
+        				<td>
+         					<input class="commons" type="number" name="item_col" placeholder="　콜레스테롤을 입력해주세요">
+         				</td>
+        			</tr>
+
+					
+
+					<tr class="fst">
+           				<th>단백질<span>*<span class="screen_out">필수항목</span></span></th>
+        				<td>
+         					<input class="commons" type="number" name="item_protein" placeholder="　단백질을 입력해주세요">
+         				</td>
+        			</tr>				
+				</tbody>
+       		 </table>
+			<div id="formSubmit" class="form_footer">
+				<button type="submit" class="btn active btn_join" onclick="<%=cpath%>/inputIngredient.do">상품 등록</button>
+				<button type="submit" class="btn active btn_join" onclick="<%=cpath%>/input.do" style="height: 56px;">◁ 이전</button>
+        	
+        		
+			</div>
+			<h1>　</h1>
+			<h1>　</h1>
+			<h1>　</h1>
+		</form>
+	</div>
+</div>
+
+<!-- Footer Section Begin-->
+    <footer class="footer set-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>If you want to know <br>more about our company and products, please check the SNS below.</p>
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</footer>
 
 </body>
 </html>

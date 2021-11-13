@@ -1,3 +1,4 @@
+<%@page import="kr.smhrd.model.itemVO"%>
 <%@page import="kr.smhrd.model.sellerVO"%>
 <%@page import="kr.smhrd.model.UserVO"%>
 <%@page import="kr.smhrd.model.cartViewVO"%>
@@ -14,15 +15,24 @@
 
     UserVO user=(UserVO)session.getAttribute("succ");
     sellerVO seller=(sellerVO)session.getAttribute("succ2");
-    
-	%>
+   itemVO vo2 = (itemVO) request.getAttribute("vo2");
+
+   %>
+   
+       <script type="text/javascript">
+     function outFn(){
+        location.href="<%=cpath%>/logout.do"
+     }
+     
+     src="<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"
+  </script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<!-- Google Font -->
+   <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
@@ -43,7 +53,7 @@
 
 </head>
 <body>
-	
+   
 
 
 <!-- Header Section Begin -->
@@ -55,30 +65,69 @@
                         <div class="header__top__inner">
                             <div class="header__top__left">
                                 <ul>                                                                  
-                                <li><a href="<%=cpath%>/signUp.do">Join</a></li>
-                                <li><a href="<%=cpath%>/loginPage.do">Login</a></li>
-
-                            </ul>
-                        </div>
-                        <div class="header__logo">                                                              
-                                <a href="./index.html"><img src="img/logo.png" alt=""></a>                               
+                                    <li><a href="<%=cpath%>/signUp.do">Join</a></li>
+                                    <li><a href="<%=cpath%>/SellersignUp.do">Join-Seller</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">                                                              
+                               <a href="<%=cpath%>/mainPage.do"><img src="img/logo.png" alt=""></a>                               
+                            </div>
+                            <div class="header__top__right">
+                                <ul>                                                                
+                                    <li>
+                              <% if(user==null&seller==null){ %>
+                                       <p>Please Login</p>
+                              <% } else{ %>
+                                     <% if(user!=null){ %>
+                                     <%= user.getUser_name() %>님 방문을 환영합니다.
+                                     <a class="loginout" onclick="outFn()">Logout</a>
+                                     <% }else if(seller!=null){ %>
+                                     <%= seller.getSeller_id() %>님 방문을 환영합니다.
+                                     <a class="loginout" onclick="outFn()">Logout</a>
+                                     <% }
+                                     }%>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
             </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <nav class="header__menu mobile-menu">
-                    <ul>
-                        <li><a href="<%=cpath%>/mainPage.do">Home</a></li>
-                        <li><a href="<%=cpath%>/">About Us</a></li>
-                        <li><a href="<%=cpath%>/itemList.do">Menu</a></li>
-                        <li><a href="<%=cpath%>/cartView.do">Cart</a></li>
-                        <li><a href="<%=cpath%>/seller.html">Seller</a></li>                        
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="<%=cpath%>/mainPage.do">홈</a></li>
+                            <li><a href="<%=cpath%>/aboutUs.do">라도이야기</a></li>
+                            <li><a href="<%=cpath%>/itemList.do">메뉴</a></li>
+                                    
+                        <%if(user == null && seller==null){ %> 
+                        <li><a href="<%=cpath%>/loginPage.do" class="loginout">로그인</a></li> 
+                        <%}else if(user != null){ %>
+                        <li>
+                        <form action="<%=cpath%>/cartView.do" method="post">
+                           <input type="hidden" name="user_num" value="<%=user.getUser_num()%>"> 
+                           <input type="submit" id="seller_pd" value="장바구니" />
+                        </form> 
+                        </li>
+                        <% }else if(seller != null){ %>
+                        <li>
+                        <form action="<%=cpath%>/input.do" method="post">
+                           <input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+                           <input type="submit" id="seller_pd" value="상품등록" />
+                        </form> 
+                        </li>
+                        <li>
+                        <form action="<%=cpath%>/manageItem.do" method="post">
+                           <input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+                           <input type="submit" id="seller_pd" value="상품관리" />
+                        </form> 
+                        </li>
+                         <% } %>
                         </ul>
                     </nav>
                 </div>
@@ -87,14 +136,16 @@
     </header>
 <!-- Header Section End -->
 
-	
+
+   
 <!-- Breadcrumb Begin -->
- <div class="breadcrumb-option">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="breadcrumb__text">
-                    <h2>장바구니</h2>
+<div class="breadcrumb-option">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="breadcrumb__text2">
+                   <h2>장바구니</h2>
+                   <h2>　</h2>
                 </div>
             </div>
         </div>
@@ -110,90 +161,115 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="shopping__cart__table">
-                    <table>
+                    <table id="shop_cart_fuck">
                         <thead>
-                            <tr>
-                                <th>삼품명</th>
-                                <th>수량</th>
-                                <th>총액</th>
-                                <th></th>
+                            <tr>                               
+                                <th style="text-align:left; colspan: 2;">상품명</th>
+                                <th style="text-align:left;">　　 가격</th>
+                                <th style="text-align:left;">　　수량</th>
+                                <th style="text-align:left;">　총액</th>
+                                <th style="text-align:center;">삭제</th>
                             </tr>
                         </thead>
                         <tbody>
-								<% int total_price=0; %>
-								<% if(list.size() == 0){ %>
-								<tr>
-									<td class="product__cart__item">
-										<div class="product__cart__item__pic">
-											<img src="img/shop/cart/cart-1.jpg" alt="">
-										</div>
-										<div class="product__cart__item__text">
-											<h6>장바구니에 담긴 상품이 없습니다.</h6>
-										</div>
-									</td>
-								</tr>
-								<% } else { %>
-								<% for(int i = 0; i < list.size(); i++) { %>
-								<% cartViewVO vo = list.get(i); %>
-								<% int sum_price=vo.getItem_price()*vo.getCart_cnt() ; %>
-								<% total_price+=sum_price; %>
-								<tr>
-									<td class="product__cart__item">
-										<div class="product__cart__item__pic">
-											<img src="img/shop/cart/cart-1.jpg" alt="">
-										</div>
-										<div class="product__cart__item__text">
-											<h6><%=vo.getItem_name() %></h6>
-										</div>
-									</td>
-									<td class="quantity__item">
-										<div class="quantity">
-											<div class="pro-qty">
-												<h6><%=vo.getItem_price() %></h6>
-											</div>
-										</div>
-									</td>
-									<td class="quantity__item">
-										<div class="quantity">
-											<div class="pro-qty">
-												<h6><%=vo.getCart_cnt() %></h6>
-											</div>
-										</div>
-									</td>
-									<td class="cart__price"><%=sum_price%>원</td>
-									<td class="cart__close"><span class="icon_close"></span></td>
-								</tr>
-								<% } %>
-								<% } %>
-						</tbody>
+                        <% int total_price=0; %>
+                        <% if(list.size() == 0){ %>
+                        <tr>
+                           <td class="product__cart__item" >
+                              <div class="product__cart__item__pic" id="cart_pic">
+                                 <img src="<%=vo2.getItem_imgurl()%>" >
+                              </div>
+                              <div class="product__cart__item__text">
+                                 <h6>장바구니에 담긴 상품이 없습니다.</h6>
+                              </div>
+                           </td>
+                        </tr>
+                        <% } else { %>
+                        <% for(int i = 0; i < list.size(); i++) { %>
+                        <% cartViewVO vo = list.get(i); %>
+                        <% int sum_price=vo.getItem_price()*vo.getCart_cnt() ; %>
+                        <% total_price+=sum_price; %>
+                        <tr>
+                           <td class="product__cart__item">
+                              <div class="product__cart__item__pic">
+                                 <img src="<%=vo.getItem_imgurl()%>" style="width: 100px; height: 100px">
+                              </div>
+                              <div class="product__cart__item__text" style="padding-top: 50px; padding-bottom: 20px;">
+                                 <h6><%=vo.getItem_name() %></h6>
+                              </div>
+                           </td>
+                           <td class="quantity__item">
+                              <div class="quantity">
+                                 <div class="pro-qty">
+                                    <h6><%=vo.getItem_price() %></h6>
+                                 </div>
+                              </div>
+                           </td>
+                           <td class="quantity__item">
+                              <div class="quantity">
+                                 <div class="pro-qty">
+                                    <h6><%=vo.getCart_cnt() %></h6>
+                                 </div>
+                              </div>
+                           </td>
+                           <td class="cart__price" style="text-align:left;"><%=sum_price%>원</td>
+                           <td class="cart__close">
+                              <button class="icon_close">
+                                 <img src="img/icon/x_icon.png">
+                              </button>
+                           </td>
+                        </tr>
+                        <% } %>
+                        <% } %>
+                  </tbody>
                     </table>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="continue__btn">
-                            
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="continue__btn update__btn">
-                            <a href="#"><i class="fa fa-spinner"></i> 더 둘러보기</a>
-                        </div>
-                        </div>                        
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="cart__total">
+</div>
+                <div style="margin-left: 700px">
+                    <div class="cart__total" style="width: 500px;">
                         <h6>장바구니 총액</h6>
+                        <h5>　</h5>
                         <ul>
                             <li>Total <span><%=total_price %>원</span></li>
-						</ul>
-					<a href="#" class="primary-btn">결제하기</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+                  </ul>
+               <div class="luv_suri">
+                  <a href="#" class="primary-btn__">결제하기</a>
+                  
+                  <a href="#" class="primary-btn__">더 둘러보기</a>
+               </div>
+               </div>
+               
+               
+            
+         
+      </div>
+   </section>
 <!-- Shopping Cart Section End -->
+
+<!-- Footer Section Begin -->
+    <footer class="footer set-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>If you want to know <br>more about our company and products, please check the SNS below.</p>
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 

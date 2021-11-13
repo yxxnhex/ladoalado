@@ -15,6 +15,12 @@
     
 %>
 
+    <script type="text/javascript">
+  	function outFn(){
+  		location.href="<%=cpath%>/logout.do"
+  	}
+  </script>
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/flaticon.css" type="text/css">
@@ -29,6 +35,7 @@
     <link rel="stylesheet" href="css/style1.css" type="text/css">
     <link rel="stylesheet" href="css/common.css" type="text/css">
     <link rel="stylesheet" href="css/member1.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!DOCTYPE html>
 <html>
@@ -48,11 +55,28 @@
                             <div class="header__top__left">
                                 <ul>                                                                  
                                     <li><a href="<%=cpath%>/signUp.do">Join</a></li>
-                                    <li><a href="<%=cpath%>/loginPage.do">Login</a></li>
+                                    <li><a href="<%=cpath%>/SellersignUp.do">Join-Seller</a></li>
                                 </ul>
                             </div>
                             <div class="header__logo">                                                              
-                                    <a href="./index.html"><img src="img/logo.png" alt=""></a>                               
+                            	<a href="<%=cpath%>/mainPage.do"><img src="img/logo.png" alt=""></a>                               
+                            </div>
+                            <div class="header__top__right">
+                                <ul>                                                                
+                                    <li>
+										<% if(user==null&seller==null){ %>
+                                    	<p>Please Login</p>
+										<% } else{ %>
+			                            <% if(user!=null){ %>
+			                            <%= user.getUser_name() %>님 방문을 환영합니다.
+			                            <a class="loginout" onclick="outFn()">Logout</a>
+			                            <% }else if(seller!=null){ %>
+			                            <%= seller.getSeller_id() %>님 방문을 환영합니다.
+			                            <a class="loginout" onclick="outFn()">Logout</a>
+			                            <% }
+			                            }%>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -60,17 +84,39 @@
                 <div class="canvas__open"><i class="fa fa-bars"></i></div>
             </div>
         </div>
+        
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li><a href="<%=cpath%>/mainPage.do">Home</a></li>
-                            <li><a href="<%=cpath%>/">About Us</a></li>
-                            <li><a href="<%=cpath%>/itemList.do">Menu</a></li>
-                            <li><a href="<%=cpath%>/cartView.do">Cart</a></li>
-                            <li><a href="<%=cpath%>/seller.html">Seller</a></li>                          
-
+                            <li><a href="<%=cpath%>/mainPage.do">홈</a></li>
+                            <li><a href="<%=cpath%>/aboutUs.do">라도이야기</a></li>
+                            <li><a href="<%=cpath%>/itemList.do">메뉴</a></li>
+                                    
+								<%if(user == null && seller==null){ %> 
+								<li><a href="<%=cpath%>/loginPage.do" class="loginout">로그인</a></li> 
+								<%}else if(user != null){ %>
+								<li>
+								<form action="<%=cpath%>/cartView.do" method="post">
+									<input type="hidden" name="user_num" value="<%=user.getUser_num()%>"> 
+									<input type="submit" id="seller_pd" value="장바구니" />
+								</form> 
+								</li>
+								<% }else if(seller != null){ %>
+								<li>
+								<form action="<%=cpath%>/input.do" method="post">
+									<input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+									<input type="submit" id="seller_pd" value="상품등록" />
+								</form> 
+								</li>
+								<li>
+								<form action="<%=cpath%>/manageItem.do" method="post">
+									<input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+									<input type="submit" id="seller_pd" value="상품관리" />
+								</form> 
+								</li>
+							    <% } %>
                         </ul>
                     </nav>
                 </div>
@@ -89,28 +135,23 @@
             <div class="row">
                 <div class="col-lg-7 col-md-7">
                     <div class="shop__option__search">
-                        <form action="#">
-                            <select>
-                                <option value="">전체메뉴</option>
-                                <option value="">한식</option>
-                                <option value="">중식</option>
-                                <option value="">일식</option>
-                                <option value="">양식</option>
-                            </select>
-                            <input type="text" placeholder="검색">
+                        <form method="post" action="<%=cpath%>/itemSearch.do">
+                            <input type="text" name="item_search" placeholder="검색">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5">
                     <div class="shop__option__right">
-                        <select>
-                            <option value="">정렬</option>
-                            <option value="">이름순</option>
-                            <option value="">가격순</option>
-                            <option value="">추천순</option>
+                        <form method="post" action="<%=cpath%>/itemSort.do">
+                        <select name="sort" class="option_right1">
+                            <option value="item_kcal">칼로리 높은순</option>
+                            <option value="item_nate">나트륨 높은순</option>
+                            <option value="item_protein">단백질 높은순</option>
+                            <option value="item_price">가격 높은순</option>
                         </select>
-                        <a href="#"><i class="fa fa-list"></i></a>
+                        <button type="submit"><i class="fa fa-list"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -136,65 +177,31 @@
 			                    	<div class="product__item__pic set-bg" >
 			                    		<img src="<%=vo.getItem_imgurl()%>">
             			        	</div>
+            			        	<div class="product__item__price">[ <%=vo.getItem_company()%> ]</div>
                     				<div class="product__item__text">                    	                           
                             			<form method="post" action="<%=cpath%>/itemContent.do">
                             				<input type="hidden" name="item_num" value="<%=vo.getItem_num()%>">
+                            				<%if(user!=null){ %>
                             				<input type="hidden" name="user_age" value="<%=user.getUser_age()%>">
                             				<input type="hidden" name="user_gender" value="<%=user.getUser_gender()%>">
-                         	                <input type="submit" value="<%=vo.getItem_name()%>" >
+                         	                <%} %>
+                            				<label id="menu_label" for="cb1" style="outline: 0;">
+                            					<button id="cb1"><%=vo.getItem_name()%></button>
+                            				</label>
                             			</form>
-                                                        
-                            			
-                            			<div class="product__item__price"><%=vo.getItem_price()%>원</div>
-                            			
-           							</div>
+                                        
+                            			<div class="product__item__price" id="price<%=vo.getItem_num()%>">
+										<script>
+										document.getElementById("price<%=vo.getItem_num()%>").innerHTML=(<%=vo.getItem_price()%>).toLocaleString();
+										</script>
+										원
+										</div>
                 			</li>
                 		</ul>
                 		</div>
                 </div>
 								
 				<%   }  %>
-                
-            <div class="shop__last__option">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="shop__pagination">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><span class="arrow_carrot-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="./detail.html">상품명 받아오기</a></h6>
-                        <div class="product__item__price">가격 받아오기</div>
-                        <div class="cart_add">
-                            <a href="#">담기</a>
-                        </div>
-                    </div>
-                    
-					<script type="text/javascript">
-						let data = [];
-		
-						<% for(int i = 0 ; i < 5; i++){ %>
-						data.push({
-							imgUrl : '<%=list.get(i).getItem_imgurl()%>'
-						})
-						console.log(data);
-						<%   }  %>
-		
-		</script>                			
-                    
-                </div>
-            </div>
         </div>
     </section>
 
@@ -228,15 +235,7 @@
 
 
 <!-- Js Plugins -->
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/jquery.barfiller.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/jquery.slicknav.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/main.js"></script>
+<script src="js/jquery-3.6.0.min.js"></script>
 
 
 

@@ -1,3 +1,6 @@
+<%@page import="kr.smhrd.model.itemSortVO"%>
+<%@page import="kr.smhrd.model.sellerVO"%>
+<%@page import="kr.smhrd.model.UserVO"%>
 <%@page import="kr.smhrd.model.itemVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,8 +10,22 @@
     // Object Cating(객체형변환-제일중요)
     ArrayList<itemVO> list=(ArrayList<itemVO>)request.getAttribute("list");
     ArrayList<itemVO> itemSearch_list=(ArrayList<itemVO>)request.getAttribute("itemSearch_list");
+    ArrayList<itemSortVO> itemSort_list=(ArrayList<itemSortVO>)request.getAttribute("itemSort_list");
+
     String cpath=request.getContextPath(); // /m02    
+    
+    UserVO user=(UserVO)session.getAttribute("succ");
+    sellerVO seller=(sellerVO)session.getAttribute("succ2");
+    
 %>
+
+    <script type="text/javascript">
+  	function outFn(){
+  		location.href="<%=cpath%>/logout.do"
+  	}
+  	
+  	src="<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"
+  </script>
 
 <!-- Css Styles -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css" type="text/css">
@@ -21,203 +38,194 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
+    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+출처: https://blog.canapio.com/46 [tucan9389's blog]
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
- <!-- Page Preloder -->
-        <div class="loader"></div>
-
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__cart">
-            <div class="offcanvas__cart__links">
-                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                <a href="#"><img src="img/icon/heart.png" alt=""></a>
+<!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>                                                                  
+                                    <li><a href="<%=cpath%>/signUp.do">Join</a></li>
+                                    <li><a href="<%=cpath%>/SellersignUp.do">Join-Seller</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">                                                              
+                            	<a href="<%=cpath%>/mainPage.do"><img src="img/logo.png" alt=""></a>                               
+                            </div>
+                            <div class="header__top__right">
+                                <ul>                                                                
+                                    <li>
+										<% if(user==null&seller==null){ %>
+                                    	<p>Please Login</p>
+										<% } else{ %>
+			                            <% if(user!=null){ %>
+			                            <%= user.getUser_name() %>님 방문을 환영합니다.
+			                            <a class="loginout" onclick="outFn()">Logout</a>
+			                            <% }else if(seller!=null){ %>
+			                            <%= seller.getSeller_id() %>님 방문을 환영합니다.
+			                            <a class="loginout" onclick="outFn()">Logout</a>
+			                            <% }
+			                            }%>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
             </div>
-            <div class="offcanvas__cart__item">
-                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                <div class="cart__price">Cart: <span>$0.00</span></div>
-            </div>
         </div>
-        <div class="offcanvas__logo">
-            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__option">
-            <ul>
-                <li>USD <span class="arrow_carrot-down"></span>
-                    <ul>
-                        <li>EUR</li>
-                        <li>USD</li>
-                    </ul>
-                </li>
-                <li>ENG <span class="arrow_carrot-down"></span>
-                    <ul>
-                        <li>Spanish</li>
-                        <li>ENG</li>
-                    </ul>
-                </li>
-                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-            </ul>
-        </div>
-    </div>
-    <!-- Offcanvas Menu End -->
-
- <!-- Header Section Begin -->
- <header class="header">
-    <div class="header__top">
+        
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="header__top__inner">
-                        <div class="header__top__left">
-                            <ul>                                                                  
-                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-                                <li><a href="#">Seller</a> <span class="arrow_carrot-down"></span></li>
-
-                            </ul>
-                        </div>
-                        <div class="header__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                        </div>
-                        <div class="header__top__right">
-                            <div class="header__top__right__links">
-                                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                                <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                            </div>
-                            <div class="header__top__right__cart">
-                                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                <div class="cart__price">Cart: <span>$0.00</span></div>
-                            </div>
-                        </div>
-                    </div>
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="<%=cpath%>/mainPage.do">홈</a></li>
+                            <li><a href="<%=cpath%>/aboutUs.do">라도이야기</a></li>
+                            <li><a href="<%=cpath%>/itemList.do">메뉴</a></li>
+                                    
+								<%if(user == null && seller==null){ %> 
+								<li><a href="<%=cpath%>/loginPage.do" class="loginout">로그인</a></li> 
+								<%}else if(user != null){ %>
+								<li>
+								<form action="<%=cpath%>/cartView.do" method="post">
+									<input type="hidden" name="user_num" value="<%=user.getUser_num()%>"> 
+									<input type="submit" id="seller_pd" value="장바구니" />
+								</form> 
+								</li>
+								<% }else if(seller != null){ %>
+								<li>
+								<form action="<%=cpath%>/input.do" method="post">
+									<input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+									<input type="submit" id="seller_pd" value="상품등록" />
+								</form> 
+								</li>
+								<li>
+								<form action="<%=cpath%>/manageItem.do" method="post">
+									<input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+									<input type="submit" id="seller_pd" value="상품관리" />
+								</form> 
+								</li>
+							    <% } %>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <nav class="header__menu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./about.html">About</a></li>
-                        <li><a href="#">Menu</a>
-                            <ul class="dropdown">
-                                <li><a href="./shop-details.html">Details</a></li>
-                                <li><a href="./shoping-cart.html">Cart</a></li>
-                                <li><a href="./wisslist.html">Wisslist</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./shop.html">Login</a></li>                            
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>+
+    </header>
 <!-- Header Section End -->
 
+<!-- Shop Section Begin -->
 
-    <!-- Breadcrumb End -->
+<!-- search & category Section -->
 
-    <!-- Shop Section Begin -->
-    <section class="shop spad">
-        <div class="container">
-            <div class="shop__option">
-                <div class="row">
-                    <div class="col-lg-7 col-md-7">
-                        <div class="shop__option__search">
-                            <form method="post" action="<%=cpath%>/itemSearch.do">
-                                <input type="text" name="item_search" placeholder="상품명 입력">
-                                <input type="submit" value="검색" />
-           						<input type="reset" value="취소" />
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-5">
-                        <div class="shop__option__right">
-                            <select>
-                                <option value="">Default sorting</option>
-                                <option value="">A to Z</option>
-                                <option value="">1 - 8</option>
-                                <option value="">Name</option>
-                            </select>
-                            <a href="#"><i class="fa fa-list"></i></a>
-                            <a href="#"><i class="fa fa-reorder"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="shop spad">
+    <div class="container">
+        <div class="shop__option">
             <div class="row">
-            <% for(itemVO vo : itemSearch_list){ %>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="<%=cpath%>/itemContent.do?item_num=<%=vo.getItem_num()%>"><%=vo.getItem_name()%></a></h6>
-                            <div class="product__item__price"><%=vo.getItem_price()%>원</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
-                        </div>
+                <div class="col-lg-7 col-md-7">
+                    <div class="shop__option__search">
+                        <form method="post" action="<%=cpath%>/itemSearch.do">
+                            <input type="text" name="item_search" placeholder="검색">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
-                 <%   }  %>
-                
-            </div>
-            <div class="shop__last__option">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="shop__pagination">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><span class="arrow_carrot-right"></span></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="shop__last__text">
-                            <p>Showing 1-9 of 10 results</p>
-                        </div>
+                <div class="col-lg-5 col-md-5">
+                    <div class="shop__option__right">
+                        <form method="post" action="<%=cpath%>/itemSort.do">
+                        <select name="sort">
+                            <option value="item_kcal">칼로리 높은순</option>
+                            <option value="item_nate">나트륨 높은순</option>
+                            <option value="item_protein">단백질 높은순</option>
+                            <option value="item_price">가격 높은순</option>
+                        </select>
+                        <button type="submit">정렬하기</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Shop Section End -->
+        
+        
+<!-- itemList Section -->
 
-    <!-- Footer Section Begin -->
-    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+		<div id="searchedItemDisplay" class="searched_item_display" data-displaytype="lattice">
+			<ul class="horiaontal-list">
+				<li class="horizonta-list-item">
+					
+				</li>
+			</ul>
+		</div>
+		
+        	<div class="row">
+			<% for(itemVO vo : itemSearch_list){ %>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+                	<div class="product__item">
+                		<ul>
+                			<li>
+			                    	<div class="product__item__pic set-bg" >
+			                    		<img src="<%=vo.getItem_imgurl()%>">
+            			        	</div>
+                    				<div class="product__item__text">                    	                           
+                            			<form method="post" action="<%=cpath%>/itemContent.do">
+                            				<input type="hidden" name="item_num" value="<%=vo.getItem_num()%>">
+                            				<%if(user!=null){ %>
+                            				<input type="hidden" name="user_age" value="<%=user.getUser_age()%>">
+                            				<input type="hidden" name="user_gender" value="<%=user.getUser_gender()%>">
+                         	                <%} %>
+                            				<label id="menu_label" for="cb1" style="outline: 0;">
+                            					<button id="cb1"><%=vo.getItem_name()%></button>
+                            				</label>
+                            			</form>
+                                                        
+                            			
+                            			<div class="product__item__price"><%=vo.getItem_price()%>원</div>
+                            			
+           							</div>
+                			</li>
+                		</ul>
+                		</div>
+                </div>
+								
+				<%   }  %>
+                
+            
+        </div>
+    </section>
+
+<!-- Shop Section End -->
+
+<!-- Footer Section Begin -->
+    <footer class="footer set-bg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>WORKING HOURS</h6>
-                        <ul>
-                            <li>Monday - Friday: 08:00 am – 08:30 pm</li>
-                            <li>Saturday: 10:00 am – 16:30 pm</li>
-                            <li>Sunday: 10:00 am – 16:30 pm</li>
-                        </ul>
-                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__logo">
                             <a href="#"><img src="img/footer-logo.png" alt=""></a>
                         </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore dolore magna aliqua.</p>
+                        <p>If you want to know <br>more about our company and products, please check the SNS below.</p>
                         <div class="footer__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -226,52 +234,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="footer__newslatter">
-                        <h6>Subscribe</h6>
-                        <p>Get latest updates and offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Email">
-                            <button type="submit"><i class="fa fa-send-o"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                      </p>
-                  </div>
-                  <div class="col-lg-5">
-                    <div class="copyright__widget">
-                        <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Site Map</a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </footer>
 <!-- Footer Section End -->
 
-<!-- Search Begin -->
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-<!-- Search End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.6.0.min.js"></script>
+
 
 
 
