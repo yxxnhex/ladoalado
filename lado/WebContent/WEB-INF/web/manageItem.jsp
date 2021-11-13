@@ -11,7 +11,6 @@
     ArrayList<itemVO> list=(ArrayList<itemVO>)request.getAttribute("list");
     UserVO user=(UserVO)session.getAttribute("succ");
     sellerVO seller=(sellerVO)session.getAttribute("succ2");
-   itemVO vo = (itemVO) request.getAttribute("vo");
 
 %>
 
@@ -137,8 +136,6 @@
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="container_text">
                     <h2>장바구니</h2>
-                    <h1>　</h1>
-                    <h4><%=vo.getItem_company() %></h4>
                 </div>
             </div>
         </div>
@@ -155,7 +152,7 @@
                     <table class="manage_table">
                         <thead>
                             <tr>
-                                <th style="text-align: left;">삼품사진</th>
+                                <th style="text-align: left;">상품사진</th>
                                 <th>상품명</th>
                                 <th>가격</th>
                                 <th></th>
