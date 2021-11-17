@@ -2,9 +2,3 @@
 <<<<<<<=HEAD
 >>>>>>>=branch 'master' of https\://github.com/2021-SMHRD-KDT-AI-6/lado.git
 eclipse.preferences.version=1
-encoding//WebContent/WEB-INF/web/cartView.jsp=UTF-8
-encoding//WebContent/WEB-INF/web/itemList.jsp=UTF-8
-encoding//WebContent/WEB-INF/web/itemSearch.jsp=UTF-8
-encoding//WebContent/WEB-INF/web/mainPage.jsp=UTF-8
-encoding//WebContent/css/style.css=UTF-8
-encoding//WebContent/css/style1.css=UTF-8

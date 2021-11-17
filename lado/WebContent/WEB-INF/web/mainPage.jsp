@@ -9,6 +9,11 @@
     String cpath=request.getContextPath(); // /m02
     UserVO user=(UserVO)session.getAttribute("succ");
     sellerVO seller=(sellerVO)session.getAttribute("succ2");
+    
+    ArrayList<itemVO> newItemList=(ArrayList<itemVO>)request.getAttribute("newItemList");
+    ArrayList<itemVO> suggestList=(ArrayList<itemVO>)request.getAttribute("suggestList");
+
+    
 %>
 
     <script type="text/javascript">
@@ -23,7 +28,6 @@
 <head>
 <meta charset="EUC-KR">
 <title>mainPage</title>
-
 <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -42,13 +46,14 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/style1.css" type="text/css">
     <link rel="stylesheet" href="css/common.css" type="text/css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
+     <link rel="stylesheet" href="css/member1.css" type="text/css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
     <script type="text/javascript">
-  	function outFn(){
-  		location.href="<%=cpath%>/logout.do"
-  	}
-  	
-  	src="<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"
+     function outFn(){
+        location.href="<%=cpath%>/logout.do"
+     }
+     
+     src="<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"
   </script>
 </head>
 
@@ -69,22 +74,22 @@
                                 </ul>
                             </div>
                             <div class="header__logo">                                                              
-                            	<a href="<%=cpath%>/mainPage.do"><img src="img/logo.png" alt=""></a>                               
+                               <a href="<%=cpath%>/mainPage.do"><img src="img/logo.png" alt=""></a>                               
                             </div>
                             <div class="header__top__right">
                                 <ul>                                                                
                                     <li>
-										<% if(user==null&seller==null){ %>
-                                    	<p>Please Login</p>
-										<% } else{ %>
-			                            <% if(user!=null){ %>
-			                            <%= user.getUser_name() %>님 방문을 환영합니다.
-			                            <a class="loginout" onclick="outFn()">Logout</a>
-			                            <% }else if(seller!=null){ %>
-			                            <%= seller.getSeller_id() %>님 방문을 환영합니다.
-			                            <a class="loginout" onclick="outFn()">Logout</a>
-			                            <% }
-			                            }%>
+                              <% if(user==null&seller==null){ %>
+                                       <p>Please Login</p>
+                              <% } else{ %>
+                                     <% if(user!=null){ %>
+                                     <%= user.getUser_name() %>님 방문을 환영합니다.
+                                     <a class="loginout" onclick="outFn()">Logout</a>
+                                     <% }else if(seller!=null){ %>
+                                     <%= seller.getSeller_id() %>님 방문을 환영합니다.
+                                     <a class="loginout" onclick="outFn()">Logout</a>
+                                     <% }
+                                     }%>
                                     </li>
                                 </ul>
                             </div>
@@ -104,29 +109,29 @@
                             <li><a href="<%=cpath%>/aboutUs.do">라도이야기</a></li>
                             <li><a href="<%=cpath%>/itemList.do">메뉴</a></li>
                                     
-								<%if(user == null && seller==null){ %> 
-								<li><a href="<%=cpath%>/loginPage.do" class="loginout">로그인</a></li> 
-								<%}else if(user != null){ %>
-								<li>
-								<form action="<%=cpath%>/cartView.do" method="post">
-									<input type="hidden" name="user_num" value="<%=user.getUser_num()%>"> 
-									<input type="submit" id="seller_pd" value="장바구니" />
-								</form> 
-								</li>
-								<% }else if(seller != null){ %>
-								<li>
-								<form action="<%=cpath%>/input.do" method="post">
-									<input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
-									<input type="submit" id="seller_pd" value="상품등록" />
-								</form> 
-								</li>
-								<li>
-								<form action="<%=cpath%>/manageItem.do" method="post">
-									<input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
-									<input type="submit" id="seller_pd" value="상품관리" />
-								</form> 
-								</li>
-							    <% } %>
+                        <%if(user == null && seller==null){ %> 
+                        <li><a href="<%=cpath%>/loginPage.do" class="loginout">로그인</a></li> 
+                        <%}else if(user != null){ %>
+                        <li>
+                        <form action="<%=cpath%>/cartView.do" method="post">
+                           <input type="hidden" name="user_num" value="<%=user.getUser_num()%>"> 
+                           <input type="submit" id="seller_pd" value="장바구니" />
+                        </form> 
+                        </li>
+                        <% }else if(seller != null){ %>
+                        <li>
+                        <form action="<%=cpath%>/input.do" method="post">
+                           <input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+                           <input type="submit" id="seller_pd" value="상품등록" />
+                        </form> 
+                        </li>
+                        <li>
+                        <form action="<%=cpath%>/manageItem.do" method="post">
+                           <input type="hidden" name="seller_num" value="<%=seller.getSeller_num()%>"> 
+                           <input type="submit" id="seller_pd" value="상품관리" />
+                        </form> 
+                        </li>
+                         <% } %>
                         </ul>
                     </nav>
                 </div>
@@ -143,8 +148,7 @@
             <div class="owl-stage">
                 <div class="index_video">
                     <div class="hero__text">
-                        <h1>　
-                        </h1>
+              
                     </div>
                     <video class="video_area" muted autoplay loop>
                         <source src="img/video/dinner.mp4" type="video/mp4">
@@ -155,52 +159,125 @@
     </section>
 <!-- Hero Section End -->
 
+
+
   <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6" style="padding-top:10%;">
+       
+        <div class="row" style="margin-right:-1200;">
+            <div class="col-lg-6 col-md-6" >
                 <div class="about__text">
+                   <h1>　</h1>
+                   <h1>　</h1>
+                   <h4>　</h4>
+               <img src="img/new.png" >
+               <h3>　</h3>
                     <div class="section-title">
-                        <span>Lado's Story</span>
-                        <h3>라도가 제공하는 건강한 밀키트!</h3>
+                      <div class="row">
+         <% for(itemVO vo : newItemList){ %>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                   <div class="product__item">
+                      <ul>
+                         <li>
+                         
+                                <div class="product__item__pic set-bg" >
+                                   <img src="<%=vo.getItem_imgurl()%>" style="width: 264.38px; height: 264.38px;">
+                                </div>
+                                <div class="product__item__price">[ <%=vo.getItem_company()%> ]</div>
+                                <div class="product__item__text">                                                  
+                                     <form method="post" action="<%=cpath%>/itemContent.do">
+                                        <input type="hidden" name="item_num" value="<%=vo.getItem_num()%>">
+                                        <%if(user!=null){ %>
+                                        <input type="hidden" name="user_age" value="<%=user.getUser_age()%>">
+                                        <input type="hidden" name="user_gender" value="<%=user.getUser_gender()%>">
+                                            <%} %>
+                                        <label id="menu_label" for="cb1" style="outline: 0;">
+                                           <button id="cb1"><%=vo.getItem_name()%></button>
+                                        </label>
+                                     </form>
+                                        
+                                     <div class="product__item__price" id="price<%=vo.getItem_num()%>">
+                              <script>
+                              document.getElementById("price<%=vo.getItem_num()%>").innerHTML=(<%=vo.getItem_price()%>).toLocaleString();
+                              </script>
+                              원
+                              </div>
+                         </li>
+                      </ul>
+                      </div>
+                </div>
+                        
+            <%   }  %>
+        </div>
+                      
+                   
                     </div>
-                    <p>라도는 단순하게 맛있는 밀키트에서 벗어나, 우리 가족들이 영양소에 알맞은 식사를 하기 원하는 마음에 시작되었습니다.</p>
+                  
                 </div>
 
             </div>
-            <div class="col-lg-6 col-md-6" style="padding-top:10%;">
-                <div class="about__bar">
-                    <div class="about__bar__item">
-                        <p>소비자 만족도</p>
-                        <div id="bar1" class="barfiller" style="background: rgb(17, 17, 17); width: 427.5px; transition: width 2s ease-in-out 0s;">
-                            <div class="tipWrap"><span class="tip"></span></div>
-                            <span class="fill" data-percentage="95"></span>
-                        </div>
-                    </div>
-                    <div class="about__bar__item">
-                        <p>재주문율</p>
-                        <div id="bar2" class="barfiller">
-                            <div class="tipWrap"><span class="tip"></span></div>
-                            <span class="fill" data-percentage="72"></span>
-                        </div>
-                    </div>
-                    <div class="about__bar__item">
-                        <p>여긴 뭐라고 쓰지</p>
-                        <div id="bar3" class="barfiller">
-                            <div class="tipWrap"><span class="tip"></span></div>
-                            <span class="fill" data-percentage="90"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           </div>  
+             </div>
+             
+             
+             
+             
+               <div class="container">
+       
+        <div class="row" style="margin-right:-1200;">
+            <div class="col-lg-6 col-md-6" >
                 <div class="about__text">
-                    <h3>
-                        <p>여기에 뭐라도 써보자</p>
-                    </h3>
+                   <h1>　</h1>
+                   <h1>　</h1>
+                   <h4>　</h4>
+                   <div class="container">
+               <img src="img/suggest.png" style="width: 1147px;">
+               </div>
+               <h3>　</h3>
+                    <div class="section-title">
+                      <div class="row">
+         <% for(itemVO vo : suggestList){ %>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                   <div class="product__item">
+                      <ul>
+                         <li>
+                                <div class="product__item__pic set-bg" >
+                                   <img src="<%=vo.getItem_imgurl()%>" style="width: 264.38px; height: 264.38px;">
+                                </div>
+                                <div class="product__item__price">[ <%=vo.getItem_company()%> ]</div>
+                                <div class="product__item__text">                                                  
+                                     <form method="post" action="<%=cpath%>/itemContent.do">
+                                        <input type="hidden" name="item_num" value="<%=vo.getItem_num()%>">
+                                        <%if(user!=null){ %>
+                                        <input type="hidden" name="user_age" value="<%=user.getUser_age()%>">
+                                        <input type="hidden" name="user_gender" value="<%=user.getUser_gender()%>">
+                                            <%} %>
+                                        <label id="menu_label" for="cb1" style="outline: 0;">
+                                           <button id="cb1"><%=vo.getItem_name()%></button>
+                                        </label>
+                                     </form>
+                                        
+                                     <div class="product__item__price" id="price<%=vo.getItem_num()%>">
+                              <script>
+                              document.getElementById("price<%=vo.getItem_num()%>").innerHTML=(<%=vo.getItem_price()%>).toLocaleString();
+                              </script>
+                              원
+                              </div>
+                         </li>
+                      </ul>
+                      </div>
                 </div>
+                        
+            <%   }  %>
         </div>
-    </div>
-</section>
-    
+                      
+                   
+                    </div>
+                  
+                </div>
+
+            </div>
+           </div>  
+             </div>
 
 
 <!-- Footer Section Begin -->

@@ -37,4 +37,32 @@ private static SqlSessionFactory sqlSessionFactory;
 			session.close();
 			return list;
 		}
+		
+		public void cartDelete(cartVO vo) {
+	         SqlSession session=sqlSessionFactory.openSession();
+	         session.delete("cartDelete", vo);
+	         session.commit(); 
+	         session.close();
+	      }
+		
+		public  List<cartVO> cartList(){
+	         SqlSession session=sqlSessionFactory.openSession();
+	         List<cartVO> list=session.selectList("cartList");
+	         session.close();
+	         return list;
+	      }
+	      
+	      public void cartUpdate(cartVO vo) {
+	         SqlSession session=sqlSessionFactory.openSession();
+	         session.update("cartUpdate", vo);
+	         session.commit(); //완료(저장)
+	         session.close();  //반납(커넥션을 반납해서 재활용하기 위함)
+	      }
+	      
+	      public void pay(int user_num) {
+		         SqlSession session=sqlSessionFactory.openSession();
+		         session.delete("pay", user_num);
+		         session.commit(); 
+		         session.close();
+		      }
 }

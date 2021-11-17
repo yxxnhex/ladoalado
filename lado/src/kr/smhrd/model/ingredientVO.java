@@ -15,7 +15,6 @@ public class ingredientVO {
 	private int item_carbo;
 	private int item_sugar;
 	private int item_fat;
-	private int item_trans;
 	private int item_sat;
 	private int item_col;
 	private int item_protein;

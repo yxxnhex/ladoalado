@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="css/common.css" type="text/css">
     <link rel="stylesheet" href="css/member1.css" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
 </head>
 <body>
@@ -144,16 +145,15 @@
 											<h4 class="mb-4 pb-3">구매자 로그인</h4>
 											<form class="user_login" action ="<%=cpath%>/login.do" method="post">
 												<div class="form-group">
-													<input type="text" name="user_id" class="form-style" placeholder="아이디를 입력해주세요" id="logid" autocomplete="off">
-												
+												<i class="fas fa-user"></i>
+												</i><input type="text" name="user_id" class="form-style" placeholder="아이디를 입력해주세요" id="logid" autocomplete="off">
 												</div>	
 												<div class="form-group mt-2">
+												<i class="fas fa-lock"></i>
 													<input type="password" name="user_pwd" class="form-style" placeholder="비밀번호를 입력해주세요" id="logpwd" autocomplete="off">
-												
 												</div>
 												<button type="submit" class="btn mt-4">로그인</button>
 											</form>
-                            				<p class="mb-0 mt-4 text-center"><a href="#0" class="link">비밀번호를 잊어 버렸습니까?</a></p>
 				      					</div>
 			      					</div>
 			      				</div>
@@ -164,16 +164,17 @@
 												<div class="form-group">
 												<form class="seller_login" action="<%=cpath%>/login.do" method="post">
 													<div class="form-group mt-2">
-														<input type="text" name="seller_id" class="form-style" placeholder="아이디를 입력해주세요" id="logid" autocomplete="off">
+													<i class="fas fa-user"></i>
+														<input type="text" name="seller_id" class="form-style"  placeholder="아이디를 입력해주세요" id="logid" autocomplete="off" >
 													
 													</div>
 													<div class="form-group mt-2">
+													<i class="fas fa-lock"></i>
 														<input type="password" name="seller_pwd" class="form-style" placeholder="비밀번호를 입력해주세요" id="logpwd" autocomplete="off">
 													
 													</div>
 													<button type="submit" class="btn mt-4">로그인</button>
 												</form>
-											<p class="mb-0 mt-4 text-center"><a href="#0" class="link">비밀번호를 잊어 버렸습니까?</a></p>
 				      					</div>
 			      					</div>
 			      				</div>

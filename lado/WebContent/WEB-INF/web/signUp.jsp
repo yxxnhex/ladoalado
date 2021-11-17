@@ -315,7 +315,29 @@ $('.username_input').change(function () {
 				        <input type="text" name="user_name" value="" required="" fld_esssential="" label="이름" placeholder="이름을 입력해주세요">
 				        </td>
 			        </tr>
-      
+      				
+      				<tr class="gender">
+			            <th>성별</th>
+			            <td style="color: black;">
+			            
+				            <label class="gender_label">
+				            	<input type="radio" name="user_gender" value="man"  style="padding:20px;">
+				            	<span class="ico"></span>
+				            	남자　　　　　
+				            	
+				            </label>
+			      
+				            <label class="gender_label">
+				           		<input type="radio" name="user_gender" value="woman">
+				            	<span class="ico" ></span>
+				            	여자
+				            </label>	                       
+			            
+			       		
+			            </td>
+			            </tr>
+      				
+      				
 					<tr class="age">
         				<th>나이</th>
         				<td>

@@ -148,7 +148,7 @@ function outFn(){
     <div class="row">
         <div class="about__videos">
             <video muted autoplay loop style="width:1155px;" >
-                <source src="img/video/video1.mp4" style="overflow: hidden;" type="video/mp4">
+                <source src="img/video/fuck4.mp4" style="overflow: hidden;" type="video/mp4">
             </video>
         </div>
     </div>
@@ -160,40 +160,37 @@ function outFn(){
                         <span>Lado's Story</span>
                         <h3>라도가 제공하는 건강한 밀키트!</h3>
                     </div>
-                    <p>라도는 단순하게 맛있는 밀키트에서 벗어나, 우리 가족들이 영양소에 알맞은 식사를 하기 원하는 마음에 시작되었습니다.</p>
+                    <h5>
+                    	이제 맛있는 밀키트는 너무나 당연한 조건이 되었죠. <br>
+                    	라도는 우리 가족들의 건강한 식탁을 만들기 위해 시작되었습니다.<br>
+                    	<br>
+                    	여러분의 나이와 성별에 맞는 영양소를 <br>
+                    	일일 권장량 기준으로 분석해드리는 라도와 함께<br>
+                    	건강하고 즐거운 식사를 만들어 가세요!	
+                    </h5>
+                    <h2>　</h2>
+                    <img src="img/fuck.jpg" >
                 </div>
-
             </div>
             <div class="col-lg-6 col-md-6" style="padding-top:10%;">
-                <div class="about__bar">
-                    <div class="about__bar__item">
-                        <p>소비자 만족도</p>
-                        <div id="bar1" class="barfiller" style="background: rgb(17, 17, 17); width: 427.5px; transition: width 2s ease-in-out 0s;">
-                            <div class="tipWrap"><span class="tip"></span></div>
-                            <span class="fill" data-percentage="95"></span>
-                        </div>
-                    </div>
-                    <div class="about__bar__item">
-                        <p>재주문율</p>
-                        <div id="bar2" class="barfiller">
-                            <div class="tipWrap"><span class="tip"></span></div>
-                            <span class="fill" data-percentage="72"></span>
-                        </div>
-                    </div>
-                    <div class="about__bar__item">
-                        <p>여긴 뭐라고 쓰지</p>
-                        <div id="bar3" class="barfiller">
-                            <div class="tipWrap"><span class="tip"></span></div>
-                            <span class="fill" data-percentage="90"></span>
-                        </div>
-                    </div>
+                <div class="about__text">
+                	<div class="section-title">
+                        <span>　</span>
+                        <h3>소상공인과의 상생 그리고 협력 </h3>
+                	</div>
+                	<h5>
+                		우리는 매일 새로운 맛을 원하고, 다양한 메뉴의 음식을 찾고는 합니다. <br>
+						주변 맛집의 메뉴를 우리집에서 쉽게 먹을 수 있다면 어떨까요?? <br>
+						<br>
+						코로나19 바이러스가 길어지고 있는 시점에, <br>
+						주변 소상공인과 상생하고 협력할 수 있는 문화를 <br>
+						저희 라도어라도는 만들고 싶습니다. <br>
+						<h2>　</h2>
+						
+                	</h5>
+                	<img src="img/fuck2.jpg" style="width: 555px; height:370px;">
                 </div>
             </div>
-                <div class="about__text">
-                    <h3>
-                        <p>여기에 뭐라도 써보자</p>
-                    </h3>
-                </div>
         </div>
     </div>
 </section>

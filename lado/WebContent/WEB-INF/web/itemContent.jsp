@@ -73,11 +73,7 @@ if(user!=null){
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-	a:hover {
-		background-color: red;
-	}
-</style>
+
 <meta charset="utf-8">
 <title>Insert title here</title>
 </head>
@@ -192,7 +188,7 @@ if(user!=null){
 					<div class="col-lg-6">
 						<div class="product__details__img">
 							<div class="product__details__big__img">
-								<img src="<%=vo.getItem_imgurl()%>">
+								<img src="<%=vo.getItem_imgurl()%>"  style="height:446.19; width:446.19;">
 							</div>
 							<div class="product__details__thumb" tabindex="1" style="overflow: hidden; outline: none;">
 								<div class="pt__item active"></div>
@@ -221,7 +217,7 @@ if(user!=null){
 									<input type="hidden" name="item_num" value="<%=vo.getItem_num()%>">
 									<%} %>
 	                                <div class="pro-qty">
-										<input type="text" name="cart_cnt" placeholder="수량입력" onkeyup='printNum()' style="width: 500px;">
+										<input type="number" name="cart_cnt" placeholder="수량입력" onkeyup='printNum()' style="width: 500px;" required>
 										<h2>　</h2>
 									</div>
 									<%if(user!=null){ %>
@@ -229,8 +225,11 @@ if(user!=null){
 									<%}else{ %>
 									<input class="btn_a" type="button" value="장바구니 담기" onclick="need_to_login()"/>
 									<%} %>
-									<input class="btn_a" type="reset" value="더 둘러보기" />	
-								</form>
+									</form>
+									<form action="<%=cpath%>/itemList.do" method="post">
+									<input class="btn_a" type="submit" value="더 둘러보기" />
+									</form>	
+								
 							</div>
 						</div>
 					</div>
@@ -250,8 +249,17 @@ if(user!=null){
 			
 			<div class="tab-content">
                     <div class="tab-pane active" id="test-1" role="tabpanel">
-                        <div class="row d-flex justify-content-center">
+                    	                    	<div style="text-align: center;">
                         <%if(user!=null){ %>
+                    		<h2>　</h2>
+                    		<h2>일일 권장 영양소 분석</h2>
+                    		<h5>　</h5>
+                    		<h5>
+                    			<%= user.getUser_name() %>님의 나이와 성별에 따른 일일 권장량을<br>
+                    			비율로 계산해 보여드리는 그래프 입니다.
+                    		</h5>
+                    	</div>
+                        <div class="row d-flex justify-content-center">
                             <div class="col-lg-8">
                                 <div class="product_graph" style="margin-left:17% inline:block; margin-left: 12%">
                                     <div class="graph"> 
@@ -380,9 +388,9 @@ if(user!=null){
 											<%} %>
 
 											<tr style="width: 500px;">
-												<td><img src="<%=vo2.getItem_imgurl()%>" style="width: 300px;"></td>
-												<td><img src="<%=vo4.getItem_imgurl()%>" style="width: 300px;"></td>
-												<td><img src="<%=vo6.getItem_imgurl()%>" style="width: 300px;"></td>
+												<td><img src="<%=vo2.getItem_imgurl()%>" style="width: 300px; height: 300px;"></td>
+												<td><img src="<%=vo4.getItem_imgurl()%>" style="width: 300px; height: 300px;"></td>
+												<td><img src="<%=vo6.getItem_imgurl()%>" style="width: 300px; height: 300px;"></td>
 											</tr>
 											
 											

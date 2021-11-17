@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="css/style1.css" type="text/css">
     <link rel="stylesheet" href="css/common.css" type="text/css">
     <link rel="stylesheet" href="css/member1.css" type="text/css">
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
 </head>
 <body>
@@ -175,12 +176,9 @@
                         <% int total_price=0; %>
                         <% if(list.size() == 0){ %>
                         <tr>
-                           <td class="product__cart__item" >
-                              <div class="product__cart__item__pic" id="cart_pic">
-                                 <img src="<%=vo2.getItem_imgurl()%>" >
-                              </div>
+                           <td colspan="6" class="product__cart__item" >
                               <div class="product__cart__item__text">
-                                 <h6>장바구니에 담긴 상품이 없습니다.</h6>
+                                 <h6 style="text-align:center;padding-right:5;">장바구니에 담긴 상품이 없습니다.</h6>
                               </div>
                            </td>
                         </tr>
@@ -201,22 +199,24 @@
                            <td class="quantity__item">
                               <div class="quantity">
                                  <div class="pro-qty">
-                                    <h6><%=vo.getItem_price() %></h6>
+                                    <h6><%=vo.getItem_price() %>원</h6>
                                  </div>
                               </div>
                            </td>
                            <td class="quantity__item">
                               <div class="quantity">
                                  <div class="pro-qty">
-                                    <h6><%=vo.getCart_cnt() %></h6>
+                                    <h6><%=vo.getCart_cnt() %>개</h6>
                                  </div>
                               </div>
                            </td>
                            <td class="cart__price" style="text-align:left;"><%=sum_price%>원</td>
                            <td class="cart__close">
-                              <button class="icon_close">
-                                 <img src="img/icon/x_icon.png">
-                              </button>
+                           	<form method="post" action="<%=cpath %>/cartDelete.do">
+                           	<input type="hidden" name="item_num" value="<%=vo.getItem_num()%>">
+                           	<input type="hidden" name="user_num" value="<%=user.getUser_num()%>">
+                            <button class="fas fa-times-circle" style="border:0;"></button>
+                            </form>
                            </td>
                         </tr>
                         <% } %>
@@ -233,13 +233,32 @@
                             <li>Total <span><%=total_price %>원</span></li>
                   </ul>
                <div class="luv_suri">
-                  <a href="#" class="primary-btn__">결제하기</a>
-                  
-                  <a href="#" class="primary-btn__">더 둘러보기</a>
-               </div>
-               </div>
                
                
+    
+                        <% if(list.size() == 0){ %>
+                        
+                        <% } else { %>
+                  			<form method="post" action="<%=cpath %>/pay.do">
+                           	<input type="hidden" name="user_num" value="<%=user.getUser_num()%>">
+                            <button class="fuck_btn" onclick="pay()">결제하기</button>
+                            </form>
+                        <% } %>
+                        	<form method="post" action="<%=cpath %>/itemList.do">
+                        	<button class="fuck_btn" >더 둘러보기</button>               				
+                         	</form>
+               </div>
+            </div>
+               
+       <script>
+        function pay(){
+
+            alert("정상적으로 결제되었습니다.")
+
+
+        }
+
+    </script>        
             
          
       </div>

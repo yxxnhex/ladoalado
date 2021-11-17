@@ -13,5 +13,5 @@ public class sellerVO {
 	private String seller_id;
 	private String seller_pwd;
 	private String seller_phone;
-	private String seller_bnum;
+	private String seller_company;
 }

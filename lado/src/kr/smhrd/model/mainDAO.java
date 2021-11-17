@@ -170,4 +170,26 @@ public class mainDAO {
 			session.close();
 			return itemSort_list;
 		}
+		
+		public void itemDelete(itemVO vo) {
+	         SqlSession session=sqlSessionFactory.openSession();
+	         session.delete("itemDelete", vo);
+	         session.commit(); 
+	         session.close();
+	      }
+		
+		public void ingredientDelete(int item_num) {
+	         SqlSession session=sqlSessionFactory.openSession();
+	         session.delete("ingredientDelete", item_num);
+	         session.commit(); 
+	         session.close();
+	      }
+		
+		public  List<itemVO> newItemList(){
+			SqlSession session=sqlSessionFactory.openSession();
+			List<itemVO> list=session.selectList("newItemList");
+			session.close();
+			return list;
+		}
+	
 }

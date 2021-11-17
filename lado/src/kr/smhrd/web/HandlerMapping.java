@@ -5,6 +5,7 @@ import java.util.HashMap;
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.SellersignUpController;
 import kr.smhrd.controller.aboutUsController;
+import kr.smhrd.controller.cartDeleteController;
 import kr.smhrd.controller.cartInsertController;
 import kr.smhrd.controller.cartViewController;
 import kr.smhrd.controller.idcheckController;
@@ -13,14 +14,17 @@ import kr.smhrd.controller.fileUploadController;
 import kr.smhrd.controller.inputController;
 import kr.smhrd.controller.inputIngredientController;
 import kr.smhrd.controller.itemContentController;
+import kr.smhrd.controller.itemDeleteController;
 import kr.smhrd.controller.itemListController;
 import kr.smhrd.controller.itemSearchController;
 import kr.smhrd.controller.itemSortController;
+import kr.smhrd.controller.itemUpdateController;
 import kr.smhrd.controller.loginController;
 import kr.smhrd.controller.loginPageController;
 import kr.smhrd.controller.logoutController;
 import kr.smhrd.controller.mainPageController;
 import kr.smhrd.controller.manageItemController;
+import kr.smhrd.controller.payController;
 import kr.smhrd.controller.sellerInsertController;
 import kr.smhrd.controller.selleridcheckController;
 import kr.smhrd.controller.signUpController;
@@ -54,7 +58,10 @@ public class HandlerMapping {
 		mappings.put("/aboutUs.do", new aboutUsController());
 		mappings.put("/manageItem.do", new manageItemController());
 		mappings.put("/itemSort.do", new itemSortController());
-
+		mappings.put("/itemUpdate.do", new itemUpdateController());
+		mappings.put("/cartDelete.do", new cartDeleteController());
+		mappings.put("/itemDelete.do", new itemDeleteController());
+		mappings.put("/pay.do", new payController());
 		
 
 	}

@@ -1115,6 +1115,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 *, ::after, ::before {
     box-sizing: border-box;
+   
 }
 user agent stylesheet
 header {

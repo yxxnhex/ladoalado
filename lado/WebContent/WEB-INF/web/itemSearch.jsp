@@ -183,7 +183,7 @@
                 		<ul>
                 			<li>
 			                    	<div class="product__item__pic set-bg" >
-			                    		<img src="<%=vo.getItem_imgurl()%>">
+			                    		<img src="<%=vo.getItem_imgurl()%>" style="height:262.5; width:262.5;">
             			        	</div>
                     				<div class="product__item__text">                    	                           
                             			<form method="post" action="<%=cpath%>/itemContent.do">

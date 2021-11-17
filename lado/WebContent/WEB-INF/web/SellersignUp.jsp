@@ -262,17 +262,17 @@ function chkForm2() {
         </tr>
         <tr>
             <tr>
-                <th>사업자 번호<span class="ico">*<span class="screen_out"></span></span></th>
+                <th>회사(가게)명<span class="ico">*<span class="screen_out"></span></span></th>
                 <td>
-                <input type="text" name="seller_bnum" value="" required="" fld_esssential="" label="사업자번호" placeholder="사업자 번호를 입력해주세요">
+                <input type="text" name="seller_company" value="" required="" fld_esssential="" label="회사(가게)명" placeholder="회사(가게)명을 입력해주세요">
                 </td>
                 </tr>
         
         </tr>
         <tr>
-            <th>폰 번호<span class="ico">*<span class="screen_out"></span></span></th>
+            <th>연락처<span class="ico">*<span class="screen_out"></span></span></th>
             <td>
-            <input type="text" name="seller_phone" value="" required="" fld_esssential="" label="폰번호" placeholder="폰 번호를 입력해주세요">
+            <input type="text" name="seller_phone" value="" required="" fld_esssential="" label="연락처" placeholder="연락처를 입력해주세요">
             </td>
             </tr>
         <tr class="field_phone">

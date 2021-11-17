@@ -18,10 +18,10 @@ public class sellerInsertController implements Controller {
 		String seller_id=request.getParameter("seller_id");
 		String seller_pwd=request.getParameter("seller_pwd");
 		String seller_phone=request.getParameter("seller_phone");
-		String seller_bnum=request.getParameter("seller_bnum");
+		String seller_company=request.getParameter("seller_company");
 		
 		sellerVO vo=new sellerVO();
-		vo.setSeller_bnum(seller_bnum);
+		vo.setSeller_company(seller_company);
 		vo.setSeller_id(seller_id);
 		vo.setSeller_phone(seller_phone);
 		vo.setSeller_pwd(seller_pwd);

@@ -66,8 +66,8 @@
 	</select>
 	
 	<insert id="sellerInsert" parameterType="kr.smhrd.model.sellerVO">
-		insert into sellers(seller_id,seller_pwd,seller_phone,seller_bnum) 
-		values(#{seller_id},#{seller_pwd},#{seller_phone},#{seller_bnum})
+		insert into sellers(seller_id,seller_pwd,seller_phone,seller_company) 
+		values(#{seller_id},#{seller_pwd},#{seller_phone},#{seller_company})
 	</insert>
 	
 	<select id="sellerid_check" parameterType="kr.smhrd.model.sellerVO" resultType="kr.smhrd.model.sellerVO">
@@ -80,8 +80,8 @@
 	</insert>
 	
 	<insert id="ingredientInsert" parameterType="kr.smhrd.model.ingredientVO">
-		insert into ingredients(item_kcal, item_nate, item_carbo, item_sugar, item_fat, item_trans, item_sat, item_col, item_protein) 
-		values(#{item_kcal}, #{item_nate}, #{item_carbo}, #{item_sugar}, #{item_fat}, #{item_trans}, #{item_sat}, #{item_col}, #{item_protein})
+		insert into ingredients(item_kcal, item_nate, item_carbo, item_sugar, item_fat, item_sat, item_col, item_protein) 
+		values(#{item_kcal}, #{item_nate}, #{item_carbo}, #{item_sugar}, #{item_fat}, #{item_sat}, #{item_col}, #{item_protein})
 	</insert>
 	
 	<select id="itemSort_protein" resultType="kr.smhrd.model.itemSortVO">
@@ -107,4 +107,32 @@
 		from items, ingredients where items.item_num = ingredients.item_num
 		order by item_price desc
 	</select>
+	
+	<delete id="cartDelete" parameterType="kr.smhrd.model.cartVO">
+      delete from carts where item_num=#{item_num} and user_num=#{user_num}
+   </delete>
+   
+   <delete id="itemDelete" parameterType="kr.smhrd.model.itemVO">
+      delete from items where item_num=#{item_num} and seller_num=#{seller_num}
+   </delete>
+   
+   <delete id="ingredientDelete" parameterType="int">
+      delete from ingredients where item_num=#{item_num}
+   </delete>
+   
+   <select id="cartList" resultType="kr.smhrd.model.cartVO">
+      select * from carts
+   </select>
+   
+   <update id="cartUpdate" parameterType="kr.smhrd.model.cartVO">
+      update carts set cart_cnt=cart_cnt+#{cart_cnt} where item_num=#{item_num} and user_num=#{user_num}
+   </update>
+   
+   <select id="newItemList" resultType="kr.smhrd.model.itemVO">
+		select * from items order by reg_date desc
+	</select>
+	
+	<delete id="pay" parameterType="int">
+      delete from carts where user_num=#{user_num}
+   </delete>
 </mapper>
